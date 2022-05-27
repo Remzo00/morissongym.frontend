@@ -1,5 +1,12 @@
+import styled from "styled-components";
+
 function App() {
-  return <div>Morrison Gym</div>;
+  return <Button color={"green"}>Morrison Gym</Button>;
 }
+
+const Button = styled.div<{ color: string }>`
+  width: 100px;
+  background-color: ${(props) => props.theme.colors.black};
+`;
 
 export default App;
