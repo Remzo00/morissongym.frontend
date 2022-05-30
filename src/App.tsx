@@ -1,5 +1,16 @@
+import Navigation from "./components/Navigation";
+
+
 function App() {
-  return <div>Morrison Gym</div>;
+  return <div>
+
+<Navigation/>
+
+  </div>
+  
+
+  
+
 }
 
 export default App;
