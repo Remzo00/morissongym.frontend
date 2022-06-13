@@ -1,12 +1,15 @@
-import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
-  return <Button color={"green"}>Morrison Gym</Button>;
-}
-
-const Button = styled.div<{ color: string }>`
-  width: 100px;
-  background-color: ${(props) => props.theme.colors.black};
-`;
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/members" element={<h1>Members</h1>} />
+      <Route path="/coach" element={<h1>coach</h1>} />
+      <Route path="/settings" element={<h1>settings</h1>} />
+      <Route path="/login" element={<h1>Login</h1>} />
+    </Routes>
+  );
+};
 
 export default App;
