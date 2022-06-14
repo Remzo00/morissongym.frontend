@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./screens/loginScreen";
+import Login from "./screens/login";
 
 const App = () => {
   return (

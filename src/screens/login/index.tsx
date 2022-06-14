@@ -1,8 +1,6 @@
 import React from "react";
 import { PasswordInput, TextInput, Button, Title } from "@mantine/core";
-import styled from "styled-components";
-import backGround from "../../assets/images/backGround.png";
-
+import { Wrapper, LoginContainer, LoginInput } from "./index.styled";
 const Login = () => {
   return (
     <Wrapper>
@@ -21,7 +19,9 @@ const Login = () => {
             label="Name or E-mail"
             required
             style={{ paddingTop: 15 }}
-            styles={{ label: { color: "white" } }}
+            styles={{
+              label: { color: "white" },
+            }}
           />
           <PasswordInput
             placeholder="Password"
@@ -39,33 +39,5 @@ const Login = () => {
     </Wrapper>
   );
 };
-
-const Wrapper = styled.div`
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  height: 100vh;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(${backGround});
-`;
-
-const LoginContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
-  width: 80vh;
-  background-color: #1e1e1e;
-  border-radius: 20px;
-  opacity: 80%;
-`;
-
-const LoginInput = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 export default Login;
