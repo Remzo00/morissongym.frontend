@@ -1,54 +1,60 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-  
+  margin-top: 32px;  
 `
-export const Header = styled.div`
-  margin-top: -40px;
+export const Wrapper = styled.div`
+  margin: 10%;
+ 
+`
+export const Title = styled.h1`
+  margin-left: 35%;
+  margin-bottom: -5%;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 30px;
+  color:${(props) => props.theme.colors.white}
+`
+export const Text = styled.h1`
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 30px;
   margin-left: 10px;
+  color:${(props) => props.theme.colors.white} ;
 `
-export const Text = styled.h3`
-  color: #43CDB8;
+export const Input = styled.input`
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  width: 100%;
+  height: 30px;
+  margin: 10px;
 `
-export const LeftDiv = styled.div`
-  margine-top: 30px;
-`
-export const RightDiv = styled.div`
-    
-`
-export const Input = styled.input` 
-  display: block;
-  border-style: none;    
-  border-bottom: 2px solid #43CDB8;  
-  width: max;
-  padding: .95em 1em;
-`
-export const ParentDiv = styled.div`
+export const ButtonDiv = styled.div`
   display: flex;
   justify-content: space-around;
+  margin-left: 50px;
+  margin-right: 50px;
 `
-export const ParrentBtn = styled.div`
-  display: flex;
-  margin-left: 50%;  
-  margin-top: 30px;
-`
-export const AddMemberButton = styled.button`
-  border: none;
-  border-radius: 18px;
-  width: 100px;
+export const ConfirmButton = styled.button`
+  width: 150px;
   height: 35px;
-  background: #1A962A;
+  border-radius: 10px;
+  color: #FFFFFF;  
   cursor: pointer;
-  margin-right: 12px;
+  border: none;
+  background: ${(props) => props.theme.colors.green};
 `
 export const CancelButton = styled.button`
-  border: none;
-  border-radius: 18px;
-  width: 100px;
+  width: 150px;
   height: 35px;
-  background: #D11A2A;
-  cursor: pointer;
-`
-export const TextBtn = styled.text`
-  color: #E8F4FB;
+  cursor: pointer; 
+  border: none;
+  border-radius: 10px;
+  background: ${(props) => props.theme.colors.red};   
+  color: #FFFFFF; 
 `
