@@ -1,14 +1,10 @@
-import { IoIosFitness } from "react-icons/io";
-import { BsFillArrowLeftSquareFill } from "react-icons/bs";
-import { AiOutlineHome } from "react-icons/ai";
-import { AiOutlineSetting } from "react-icons/ai";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   width: 9vw;
   height: 100vh;
-  background-color: #1b4469;
+  background-color: ${(props) => props.theme.colors.gray};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +13,7 @@ export const Wrapper = styled.div`
 
 export const StyledLink = styled(Link)`
   & > svg {
-    fill: white;
+    fill: ${(props) => props.theme.colors.white};
     padding-top: 2.7rem;
   }
 `;
