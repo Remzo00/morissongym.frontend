@@ -5,13 +5,12 @@ import { ThemeProvider } from "styled-components";
 import App from "./App";
 import { theme } from "./assets/theme";
 import "./index.css";
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <ThemeProvider theme={theme}>
-    <React.StrictMode>
-      <BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
         <App />
-      </BrowserRouter>
-    </React.StrictMode>
-  </ThemeProvider>
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
