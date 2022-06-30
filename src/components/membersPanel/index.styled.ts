@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   width: 80%;
   margin: auto;
   background-color: ${(props) => props.theme.colors.black};
-  /* background-color: rgba(255, 255, 255, 0.03); */
   margin-top: 150px;
   color: ${(props) => props.theme.colors.white};
   border-radius: 15px 15px 0px 0px;
@@ -38,30 +37,3 @@ export const TableWrapper = styled.div`
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.03);
 `;
-
-// export const Table = styled.table`
-//   border-collapse: collapse;
-//   width: 100%;
-// `;
-
-// export const TableTr = styled.tr`
-//   /* background-color: rgba(255, 255, 255, 0.05); */
-//   background-color: ${(props) => props.theme.colors.gray};
-// `;
-
-// export const TableTh = styled.th`
-//   border: 1px solid #dddddd;
-//   text-align: left;
-//   padding: 8px;
-//   font-size: 18px;
-//   font-weight: 700;
-// `;
-
-// export const TableTd = styled.td`
-//   border: 1px solid #dddddd;
-//   background-color: rgba(255, 255, 255, 0.05);
-//   text-align: left;
-//   padding: 8px;
-//   font-size: 18px;
-//   font-weight: 700;
-// `;

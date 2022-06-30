@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const Wrapper = styled.div`
   width: 9vw;
   height: 100vh;
-  /* background-color: #1b4469; */
   background-color: ${(props) => props.theme.colors.black};
 
   display: flex;
