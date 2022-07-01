@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import AddMemberDialog from "./components/AddMemberDialog/AddMemberDialog";
 import Login from "./screens/login";
+import Navbar from "./components/navbar";
+import TrialProgram from "./components/TrialPackage";
 
 const App = () => {
 
