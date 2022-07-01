@@ -7,12 +7,14 @@ import {
   CancelBtn,
   FinishBtn,
   Main,
+  TrialTitle,
 } from "./index.styled";
 
 const TrialProgram = () => {
   return (
     <Main>
       <Wrapper>
+        <TrialTitle>Choose Program</TrialTitle>
         <CardWrapper>
           <Cards>hghjbakjbsai</Cards>
           <Cards>hghjbakjbsai</Cards>
