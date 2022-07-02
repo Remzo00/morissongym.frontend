@@ -14,7 +14,7 @@ const MembersPanel = () => {
       <Wrapper>
         <HeadingWrapper>
           <Heading>Members list</Heading>
-          <Button>Add members</Button>
+          <Button>Add memberss</Button>
         </HeadingWrapper>
         <TableWrapper>
           <TableComp />
