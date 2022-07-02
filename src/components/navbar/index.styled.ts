@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Wrapper = styled.div`
   width: 9vw;
   height: 100vh;
-  background-color: ${(props) => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.gray};
 
   display: flex;
   flex-direction: column;
