@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import AddMemberDialog from "./components/AddMemberDialog/AddMemberDialog";
 import Navbar from "./components/navbar";
 
 const App = () => {
