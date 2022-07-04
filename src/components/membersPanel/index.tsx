@@ -6,7 +6,7 @@ import {
   TableWrapper,
   Wrapper,
 } from "./index.styled";
-import TableComp from "./table";
+import TableComp from "../tableMembers/table";
 
 const MembersPanel = () => {
   return (
