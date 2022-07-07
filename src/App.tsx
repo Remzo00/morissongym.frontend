@@ -1,10 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
-<<<<<<< HEAD
 import Members from "./screens/members";
-=======
 import AddCoach from "./screens/addCoach/AddCoach";
->>>>>>> e7c63451e862793bc96bee86273f0f83a3a57f1d
 
 const App = () => {
   return (
