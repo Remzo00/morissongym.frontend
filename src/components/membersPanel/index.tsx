@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Heading,
@@ -7,14 +7,22 @@ import {
   Wrapper,
 } from "./index.styled";
 import TableComp from "../tableMembers/table";
+import AddMemberDialog from "../AddMemberDialog/AddMemberDialog";
 
 const MembersPanel = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const addMemberHandler = () => {
+    setIsOpen(true)
+  }
+  
   return (
     <>
       <Wrapper>
         <HeadingWrapper>
           <Heading>Members list</Heading>
-          <Button>Add members</Button>
+          <Button onClick={addMemberHandler}>Add members</Button>
+          {isOpen && <AddMemberDialog opened={isOpen} setOpened={setIsOpen}/>}
         </HeadingWrapper>
         <TableWrapper>
           <TableComp />
