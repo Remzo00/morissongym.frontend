@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import {
     Button,
     Heading,
@@ -6,15 +7,23 @@ import {
     Wrapper,
   } from "./AddCoach.styled";
 import TableCoaches from "../../components/tableCoaches/tableCoaches";
+import AddCoachDialog from "../../components/AddCoachDialog/AddCoachDialog";
 
 
 const AddCoach = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const addCoachHandler = () => {
+    setIsOpen(true)
+  }
+
     return(
         <>
         <Wrapper>
         <HeadingWrapper>
           <Heading>Coaches list</Heading>
-          <Button>Add Coach</Button>
+          <Button onClick={addCoachHandler}>Add Coach</Button>
+          {isOpen && <AddCoachDialog opened={isOpen} setOpened={setIsOpen} />}
         </HeadingWrapper>
         <TableWrapper>
           <TableCoaches/>
