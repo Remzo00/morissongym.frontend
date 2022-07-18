@@ -7,7 +7,7 @@ import { Wrapper } from "./index.styled";
 const Members = () => {
   return (
     <Wrapper>
-      <Navbar />
+      <Navbar />      
       <MembersPanel />
           </Wrapper>
   );
