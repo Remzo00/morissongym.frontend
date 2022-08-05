@@ -15,7 +15,7 @@ export const Title = styled.h1`
   font-weight: 400;
   font-size: 32px;
   line-height: 30px;
-  color:${(props) => props.theme.colors.white}
+  color:${(props) => props.theme.colors.black}
 `
 export const Text = styled.h1`
   font-family: 'Poppins';
@@ -24,7 +24,7 @@ export const Text = styled.h1`
   font-size: 17px;
   line-height: 30px;
   margin-left: 10px;
-  color:${(props) => props.theme.colors.white} ;
+  color:${(props) => props.theme.colors.black} ;
 `
 export const Input = styled.input`
   display: flex;
