@@ -6,7 +6,7 @@ import Login from "./screens/login";
 const App = () => {
   return (
     <Routes>
-      <Route path="/home" element={<h1>Home</h1>} />
+      <Route path="/" element={<h1>Home</h1>} />
       <Route path="/daily" element={<h1>Daily</h1>} />
       <Route path="/coachs" element={<Coach />} />
       <Route path="/settings" element={<h1>Settings</h1>} />
