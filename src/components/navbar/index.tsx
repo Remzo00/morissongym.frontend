@@ -1,26 +1,26 @@
 import Icons from "../../assets/icons";
-import { Wrapper, Text, Active } from "./index.styled";
+import { Wrapper, Text, StyledLink } from "./index.styled";
 import cx from 'classnames';
 
 const Navbar = () => {
 
   return (
     <Wrapper>
-      <Active to={"/home"}>
+      <StyledLink to={"/"}>
         <Text><Icons.Home /> Home</Text>
-      </Active>
-      <Active to={"/daily"}>
+      </StyledLink>
+      <StyledLink to={"/daily"}>
         <Text> <Icons.Daily /> Daily</Text>
-      </Active>
-      <Active to={"/members"}>             
+      </StyledLink>
+      <StyledLink to={"/members"}>             
         <Text> <Icons.Members /> Members</Text>
-      </Active>
-      <Active to={"/coachs"}>        
+      </StyledLink>
+      <StyledLink to={"/coachs"}>        
         <Text><Icons.Members/> Coach</Text>
-      </Active>
-      <Active to={"/settings"}>       
+      </StyledLink>
+      <StyledLink to={"/settings"}>       
         <Text><Icons.Settings/> Settings</Text>
-      </Active>
+      </StyledLink>
     </Wrapper>
   );
 };
