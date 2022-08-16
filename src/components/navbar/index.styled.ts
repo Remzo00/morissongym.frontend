@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
  
-export const Active = styled(NavLink)`
+export const StyledLink = styled(NavLink)`
   background-color: ${(props) => props.theme.colors.gray};
   border-radius: 0px 10px 10px 0px;
   display: flex;
@@ -28,18 +28,3 @@ export const Text = styled.h1`
   font-weight: 700;
   font-style: italic;
 `
-
-// export const Text = styled.h1`
-//   color: #fff;
-// `
-// export const Wrap = styled.div`
-//   display: flex;
-// `
-// export const StyledLink = styled(Link)`
-//   & > svg {
-//     fill: ${(props) => props.theme.colors.white};
-//     padding-top: 2.7rem;
-//     margin-right:15vh ;
-  
-//   }
-// `;

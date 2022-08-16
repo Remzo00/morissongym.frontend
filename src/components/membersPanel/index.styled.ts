@@ -28,6 +28,7 @@ export const Button = styled.button`
   font-weight: 700;
   color: white;
   font-size: 16px;
+  cursor: pointer;
 `;
 
 export const TableWrapper = styled.div`
