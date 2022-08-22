@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: auto;
+  width: 80%;
+  height: 663px;
   margin: auto;
   background-color: ${(props) => props.theme.colors.black};
   color: ${(props) => props.theme.colors.white};
-  border-radius: 15px 15px 0px 0px;
   padding: 25px;
 `;
 

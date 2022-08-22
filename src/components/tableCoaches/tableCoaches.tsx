@@ -1,77 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Icons from "../../assets/icons";
-import { Table } from "@mantine/core";
+import { Button, Table } from "@mantine/core";
 import { Th } from "./tableCoaches.styled";
-
-const elements = [
-    {
-        status: <Icons.Checked />,
-        contact: "065/123/233",
-        startDate: "15/07/2021",
-        endDate: "15/07/2021",
-        edit: <Icons.Edit />,
-        name: "Pera Peric",
-      },
-      {
-        status: <Icons.Checked />,
-        contact: "065/123/233",
-        startDate: "15/07/2021",
-        endDate: "15/07/2021",
-        edit: <Icons.Edit />,
-        name: "Neko Nekic",
-      },
-      {
-        status: <Icons.Checked />,
-        contact: "065/123/233",
-        startDate: "15/07/2021",
-        endDate: "15/07/2021",
-        edit: <Icons.Edit />,
-        name: "Marko Markovic",
-      },
-      {
-        status: <Icons.Checked />,
-        contact: "065/123/233",
-        startDate: "15/07/2021",
-        endDate: "15/07/2021",
-        edit: <Icons.Edit />,
-        name: "Trecko Treckovic",
-      },
-];
+import api from "../../api";
+import { Coach } from "../../types/types";
 
 const TableCoaches = () => {
-    const rows = elements.map((element) => (
-        <tr key={element.name}>
-            <td>{element.status}</td>
-            <td>{element.name}</td>
-            <td>{element.contact}</td>
-            <td>{element.startDate}</td>
-            <td>{element.endDate}</td>
-            <td>{element.edit}</td>
-        </tr>
-    ))
+  const [data, setData] = useState<Coach[]>([]);
 
-    return(
-        <Table
-            fontSize="lg"
-            verticalSpacing="sm"
-            style={{ color: "white" }}
-            sx={(theme) => ({
-            backgroundColor: theme.colors.black,
-        })}
-        >
-        <thead>
+  useEffect(() => {
+    api.fetchCoachs().then((res) => {
+      setData(res.result);
+    });
+  }, []);
+  const rows = data.map((coach, index) => (
+    <tr key={index}>
+      <td>
+        <Icons.Checked />
+      </td>
+      <td>{coach.firstName}</td>
+      <td>{coach.lastName}</td>
+      <td>{coach.phoneNumber}</td>
+      <td>{coach.email}</td>
+      <td>
+        <Button />
+      </td>
+    </tr>
+  ));
+
+  return (
+    <Table
+      fontSize="lg"
+      verticalSpacing="sm"
+      style={{ color: "white" }}
+      sx={(theme) => ({
+        backgroundColor: theme.colors.black,
+      })}
+    >
+      <thead>
         <tr>
           <Th>Status</Th>
-          <Th>Name</Th>
+          <Th>First Name</Th>
+          <Th>Last Name</Th>
           <Th>Contact</Th>
-          <Th>Start Date</Th>
-          <Th>End Date</Th>
+          <Th>Email</Th>
           <Th>Edit</Th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
     </Table>
-    )
-}
+  );
+};
 
-export default TableCoaches
+export default TableCoaches;
