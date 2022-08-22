@@ -5,13 +5,8 @@ import Login from "./screens/login";
 import Home from "./screens/home/home";
 import Daily from "./screens/daily/daily";
 import Settings from "./screens/settings/settings";
-import { useEffect } from "react";
-import api from "./api";
 
 const App = () => {
-  useEffect(() => {
-    api.fetchCoachs().then(res => console.log(res))
-  },[])
   return (
     <Routes>
       <Route path="/" element={<Home />} />
