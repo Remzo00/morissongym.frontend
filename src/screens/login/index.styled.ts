@@ -31,14 +31,15 @@ export const Button = styled.button`
   background-color: ${(props) => props.theme.colors.green};
   color: ${(props) => props.theme.colors.white};
   margin-top: 25px;
-  padding: 15px 32px;
+  margin-left: 100px;
+  padding: 12px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  height: 50px;
-  width: 400px;
+  height: 40px;
+  width: 150px;
   border-radius: 10px;
 `;
