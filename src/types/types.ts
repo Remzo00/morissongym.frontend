@@ -19,3 +19,7 @@ export type Coach = {
   phoneNumber: string;
   email: string;
 };
+export type Login = {
+  username: string;
+  password: string;
+};
