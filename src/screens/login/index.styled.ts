@@ -21,10 +21,24 @@ export const LoginContainer = styled.div`
   width: 80vh;
   background-color: #1e1e1e;
   border-radius: 20px;
-  opacity: 80%;
 `;
 
 export const LoginInput = styled.div`
   display: flex;
   flex-direction: column;
+`;
+export const Button = styled.button`
+  background-color: ${(props) => props.theme.colors.green};
+  color: ${(props) => props.theme.colors.white};
+  margin-top: 25px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
 `;
