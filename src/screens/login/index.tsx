@@ -1,15 +1,24 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Login } from "../../types/types";
 import { PasswordInput, TextInput, Title } from "@mantine/core";
 import { Wrapper, LoginContainer, LoginInput, Button } from "./index.styled";
 import api from "../../api";
-import { Link } from "react-router-dom";
+
+//TODO
+//Finish handling JWT token
+//send code in api request header
 
 const LoginPage = () => {
-  const [data, setData] = useState<Login>({ username: "", password: "" });
+  const [data, setData] = useState<Login>({ username: "" });
+
+  const setAuthToken = (token: string) => {
+    if (token) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    } else delete axios.defaults.headers.common["Authorization"];
+  };
 
   const handleChange = (e: any) => {
-    console.log(e.target.name);
     const value = e.target.value;
     setData({
       ...data,
@@ -19,9 +28,17 @@ const LoginPage = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     api.getLogin(data).then((res) => {
-      //token
+      //get token from response
+      const token = res.data.token;
+      //set JWT token to local
+      console.log("token", token);
+      localStorage.setItem("token", token);
+      //set token to axios common header
       setData(res.result);
+      setAuthToken(token);
       console.log(res);
+      //redirect user to home page
+      // window.location.href = "/";
     });
   };
 
@@ -48,7 +65,7 @@ const LoginPage = () => {
               label: { color: "white" },
             }}
           />
-          <PasswordInput
+          {/* <PasswordInput
             placeholder="Password"
             label="Password"
             name="password"
@@ -58,12 +75,10 @@ const LoginPage = () => {
             required
             style={{ paddingTop: 15 }}
             styles={{ label: { color: "white" } }}
-          />
-          <Link to="/">
-            <Button type="submit" style={{ top: 25 }}>
-              Sign in
-            </Button>
-          </Link>
+          /> */}
+          <Button type="submit" style={{ top: 25 }}>
+            Sign in
+          </Button>
         </LoginInput>
       </LoginContainer>
     </Wrapper>

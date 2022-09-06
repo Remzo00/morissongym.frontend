@@ -23,7 +23,7 @@ export const LoginContainer = styled.div`
   border-radius: 20px;
 `;
 
-export const LoginInput = styled.div`
+export const LoginInput = styled.form`
   display: flex;
   flex-direction: column;
 `;

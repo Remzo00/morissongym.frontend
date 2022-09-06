@@ -22,18 +22,16 @@ class Api {
   }
   async fetchCoachs() {
     const response: ServerResponse<ApiDataResponse<Coach[]>> =
-      await this.api.get("/Coach");
+      await this.api.get("/Coach", {
+        headers: {
+          Authorization: `DARIS${localStorage.getItem("token")}`,
+        },
+      });
     return response.data;
   }
-  async getLogin({
-    username,
-    password,
-  }: {
-    username: string;
-    password: string;
-  }) {
+  async getLogin({ username }: { username: string }) {
     const response: ServerResponse<ApiDataResponse<Login>> =
-      await this.api.post("/Auth/Login", { username, password });
+      await this.api.post("/Auth/Login", { username });
     return response.data;
   }
 }
