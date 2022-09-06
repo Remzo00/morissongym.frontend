@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Coach, Login } from "../types/types";
+import { Coach, Login, User } from "../types/types";
 import { ApiDataResponse } from "./types";
 
 class Api {
@@ -17,7 +17,8 @@ class Api {
     return response.data;
   }
   async fetchUsers() {
-    const response = await this.api.get("/User");
+    const response: ServerResponse<ApiDataResponse<User[]>> =
+      await this.api.get("/User");
     return response.data;
   }
   async fetchCoachs() {

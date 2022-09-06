@@ -1,54 +1,37 @@
-import React from "react";
-import { Table } from "@mantine/core";
+import React, { useState, useEffect } from "react";
+import { Table, Button } from "@mantine/core";
 import { Th } from "./table.styled";
 import Icons from "../../assets/icons";
+import { User } from "../../types/types";
+import api from "../../api";
 
-const elements = [
-  {
-    status: <Icons.Checked />,
-    contact: "065/123/233",
-    startDate: "15/07/2021",
-    endDate: "15/07/2021",
-    edit: <Icons.Edit />,
-    name: "Dino Merlin",
-  },
-  {
-    status: <Icons.Checked />,
-    contact: "065/123/233",
-    startDate: "15/07/2021",
-    endDate: "15/07/2021",
-    edit: <Icons.Edit />,
-    name: "Safet Isovic",
-  },
-  {
-    status: <Icons.Checked />,
-    contact: "065/123/233",
-    startDate: "15/07/2021",
-    endDate: "15/07/2021",
-    edit: <Icons.Edit />,
-    name: "Halid Beslic",
-  },
-  {
-    status: <Icons.Checked />,
-    contact: "065/123/233",
-    startDate: "15/07/2021",
-    endDate: "15/07/2021",
-    edit: <Icons.Edit />,
-    name: "Saban Saulic",
-  },
-];
+//TODO
+//pass func rows in <tbody>
 
 const TableComp = () => {
-  const rows = elements.map((element) => (
-    <tr key={element.name}>
-      <td>{element.status}</td>
-      <td>{element.name}</td>
-      <td>{element.contact}</td>
-      <td>{element.startDate}</td>
-      <td>{element.endDate}</td>
-      <td>{element.edit}</td>
-    </tr>
-  ));
+  const [data, setData] = useState<User[]>([]);
+
+  useEffect(() => {
+    api.fetchUsers().then((res) => {
+      setData(res.result);
+    });
+  }, []);
+
+  const rows = data.map((user, index) => {
+    <tr key={index}>
+      <td>
+        <Icons.Checked />
+      </td>
+      <td>{user.userName}</td>
+      <td>{user.firstName}</td>
+      <td>{user.lastName}</td>
+      <td>{user.email}</td>
+      <td>{user.phoneNumber}</td>
+      <td>
+        <Button />
+      </td>
+    </tr>;
+  });
 
   return (
     <Table
@@ -69,7 +52,7 @@ const TableComp = () => {
           <Th>Edit</Th>
         </tr>
       </thead>
-      <tbody>{rows}</tbody>
+      <tbody>{}</tbody>
     </Table>
   );
 };
