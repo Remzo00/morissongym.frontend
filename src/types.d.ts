@@ -1,3 +1,3 @@
 type ServerResponse<T> = {
-    data: T
-}
+  data: T;
+};
