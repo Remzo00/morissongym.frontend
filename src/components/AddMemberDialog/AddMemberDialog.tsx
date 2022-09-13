@@ -1,21 +1,29 @@
 import React from "react";
-import { Modal, Button, Group } from '@mantine/core';
-import { ButtonDiv, Input, Main, Wrapper, ConfirmButton, CancelButton, Text, Title, } from "./AddMemberDialog.styled";
-
+import { Modal, Button, Group } from "@mantine/core";
+import {
+  ButtonDiv,
+  Input,
+  Main,
+  Wrapper,
+  ConfirmButton,
+  CancelButton,
+  Text,
+  Title,
+} from "./AddMemberDialog.styled";
 
 type Props = {
-  opened: boolean,
-  setOpened: React.Dispatch<React.SetStateAction<boolean>>
-}
-
+  opened: boolean;
+  setOpened: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 const AddMemberDialog = ({ opened, setOpened }: Props) => {
   const cancelHandler = () => {
-  setOpened(false) 
- };
+    setOpened(false);
+  };
   return (
     <Main>
       <Modal
+        styles={{ modal: { backgroundColor: "#1A1A1A" } }}
         size={"40%"}
         opened={opened}
         onClose={cancelHandler}
@@ -41,7 +49,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
         <Button style={{ background: "#7DCD16" }}>Add Member</Button>
       </Group>
     </Main>
-  )
-}
+  );
+};
 
-export default AddMemberDialog
+export default AddMemberDialog;
