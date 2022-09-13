@@ -30,17 +30,18 @@ export const WrapDailyImg = styled.div<Props>`
     margin-top: 20px;
     margin-bottom: ${props=>(`${props.marignBottom ? props.marignBottom : 20}px`)};
     margin-left: 50px;
-    border-radius: 10px;
+    border-radius: 12px;
 `
 
 export const Dailyimg = styled.img`
     &:hover{
         opacity: 0.8;
+        transition: opacity 0.2s;
     }
     width: 100%;
-    height: 100%;
+    height: 100.2%;
     cursor: pointer;
-    border-radius: 9px;
+    border-radius: 10px;
 `;
 export const Title = styled.p`
 `;
@@ -57,4 +58,5 @@ export const Heading = styled.h2`
     margin-bottom: 0;
     font-weight: 900;
     font-size: 20px;
+    letter-spacing: 1px;
 `;
