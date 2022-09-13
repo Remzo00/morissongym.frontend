@@ -4,13 +4,11 @@ import {
     Wrapper,
     Main,
     Services,
-    TrainingImg,
-    DrinksImg,
-    Foodimg,
-    Supplementsimg,
     ImgWrapper,
     HeadingWrapper,
     Heading,
+    Dailyimg,
+    WrapDailyImg,
 } from "./daily.styled";
 import supplements from "../../assets/images/supplements.png";
 import training from "../../assets/images/training.png";
@@ -27,21 +25,29 @@ const Daily = () => {
                     <Services>
                         <HeadingWrapper>
                             <Heading>Training</Heading>
-                            <TrainingImg src={training} />
+                            <WrapDailyImg>
+                                <Dailyimg src={training} />
+                            </WrapDailyImg>
                         </HeadingWrapper>
                         <HeadingWrapper>
                             <Heading>Suplements</Heading>
-                            <Supplementsimg src={supplements} />
+                            <WrapDailyImg>
+                                <Dailyimg src={supplements} />
+                            </WrapDailyImg>
                         </HeadingWrapper>
                     </Services>
                     <Services>
                         <HeadingWrapper>
                             <Heading>Drinks</Heading>
-                            <DrinksImg src={drinks} />
+                            <WrapDailyImg marignBottom={50}>
+                                <Dailyimg src={drinks} />
+                            </WrapDailyImg>
                         </HeadingWrapper>
                         <HeadingWrapper>
                             <Heading>Food</Heading>
-                            <Foodimg src={food} />
+                            <WrapDailyImg marignBottom={50}>
+                                <Dailyimg src={food} />
+                            </WrapDailyImg>
                         </HeadingWrapper>
                     </Services>
                 </ImgWrapper>
