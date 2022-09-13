@@ -22,7 +22,12 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
   };
   return (
     <Main>
-      <Modal size={"40%"} opened={opened} onClose={cancelHandler}>
+      <Modal
+        styles={{ modal: { backgroundColor: "#1A1A1A" } }}
+        size={"40%"}
+        opened={opened}
+        onClose={cancelHandler}
+      >
         <Title>Add Coach</Title>
         <Wrapper>
           <Text>Full Name</Text>
