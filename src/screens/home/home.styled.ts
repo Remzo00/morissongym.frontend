@@ -3,20 +3,28 @@ import styled from "styled-components";
 interface Props {
   background?: string;
   height?: number;
+  marginBottom?: number;
 }
 export const Wrapper = styled.div`
   display: flex;
+  left: 376px;
+  top: 128px;
+  border-radius: 0px;
 `;
 
 export const HomeContainer = styled.div`
+  width: fit-content;
+  height: fit-content;
   padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
   background-color: black;
   align-items: center;
+  justify-content: center;
 `;
-export const WrapCardContainer = styled.div`
+export const WrapCardContainer = styled.div<Props>`
   display: flex;
+  margin-bottom: ${(props) => `${props.marginBottom}px`};
   flex-direction: column;
 `;
 export const CardContainer = styled.div<Props>`
@@ -24,17 +32,16 @@ export const CardContainer = styled.div<Props>`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-
-  width: 500px;
+  width: 540px;
   height: 300px;
-  margin: 20px;
+  margin: 20px 20px 0px 20px;
   background: ${(props) => props.background && props.background};
 `;
 export const CardTitle = styled.h1`
   color: white;
   font-size: 22px;
   font-weight: 700;
-  margin-left: 30px;
+  margin: 20px 0px 0px 30px;
 `;
 export const CardGymTime = styled.div`
   display: flex;
@@ -46,7 +53,7 @@ export const GymNow = styled.div`
   color: white;
   width: 49%;
   border-radius: 20px;
-  background-color: rgba(50, 49, 49, 0.636);
+  background-color: rgba(255, 255, 255, 0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +68,9 @@ export const ProgressCircle = styled.div`
 export const CardP = styled.p`
   font-size: large;
   color: white;
+  margin: 0px;
   margin-left: 10px;
+  margin-top: 20px;
 `;
 
 export const CardOverview = styled.div`
@@ -71,6 +80,7 @@ export const CardOverview = styled.div`
   padding: 10px;
   justify-content: space-around;
   margin: auto;
+  align-items: flex-end;
 `;
 
 export const DashContainer = styled.div`
@@ -93,4 +103,8 @@ export const Dash = styled.div<Props>`
 
 export const DashText = styled.p`
   color: white;
+`;
+export const DashboardImgStyled = styled.img`
+  width: 100%;
+  height: 40%;
 `;

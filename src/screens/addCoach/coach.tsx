@@ -7,9 +7,7 @@ import { Main, Wrapper } from "./coach.styled";
 const Coaches = () => {
   return (
     <Main>
-      <Header />
       <Wrapper>
-        <Navbar />
         <AddCoach />
       </Wrapper>
     </Main>

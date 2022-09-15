@@ -4,15 +4,11 @@ import Navbar from "../../components/navbar";
 import { Wrapper } from "./settings.styled";
 
 const Settings = () => {
-    return(
-        <>
-            <Header />
-            <Wrapper>
-                <Navbar />
-                SETTINGS
-            </Wrapper>
-        </>
-    )
-}
+  return (
+    <>
+      <Wrapper>SETTINGS</Wrapper>
+    </>
+  );
+};
 
-export default Settings
+export default Settings;

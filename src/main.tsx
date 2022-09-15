@@ -4,7 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import App from "./App";
 import { theme } from "./assets/theme";
+import Navbar from "./components/navbar";
+import Header from "./components/header/header";
 import "./index.css";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
