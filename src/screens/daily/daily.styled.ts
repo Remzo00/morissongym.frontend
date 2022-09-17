@@ -11,9 +11,14 @@ export const Wrapper = styled.div`
 `;
 export const ImgWrapper = styled.div`
     display: block;
+    width: 100%;
 `;
 export const Services = styled.div`
     display: flex;
+    @media screen and (max-width: 1350px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 export const TrainingImg = styled.img`
     width: 500px;
@@ -23,6 +28,10 @@ export const TrainingImg = styled.img`
     margin-left: 50px;
     cursor: pointer;
     border-radius: 10px;
+    @media screen and (max-width: 1350px) {
+        width: 100%;
+        margin: 2% 0%;
+    }
 `;
 export const DrinksImg = styled.img`
     width: 500px;
@@ -32,6 +41,10 @@ export const DrinksImg = styled.img`
     margin-left: 50px;
     cursor: pointer;
     border-radius: 10px;
+    @media screen and (max-width: 1350px) {
+        width: 100%;
+        margin: 2% 0%;
+    }
 `;
 export const Foodimg = styled.img`
     width: 500px;
@@ -41,6 +54,10 @@ export const Foodimg = styled.img`
     margin-left: 50px;
     cursor: pointer;
     border-radius: 10px;
+    @media screen and (max-width: 1350px) {
+        width: 100%;
+        margin: 2% 0%;
+    }
 `;
 export const Supplementsimg = styled.img`
     width: 500px;
@@ -50,6 +67,10 @@ export const Supplementsimg = styled.img`
     margin-left: 50px;
     cursor: pointer;
     border-radius: 10px;
+    @media screen and (max-width: 1350px) {
+        width: 100%;
+        margin: 2% 0%;
+    }
 `;
 export const Title = styled.p``;
 

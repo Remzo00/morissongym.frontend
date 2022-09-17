@@ -1,5 +1,5 @@
 import Header from "../../components/header/header";
-import Navbar from "../../components/navbar";
+import { NavbarSimple } from "../../components/navbar";
 import {
     Wrapper,
     Main,
@@ -22,7 +22,7 @@ const Daily = () => {
         <Main>
             <Header />
             <Wrapper>
-                <Navbar />
+                <NavbarSimple />
                 <ImgWrapper>
                     <Services>
                         <HeadingWrapper>

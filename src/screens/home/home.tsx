@@ -1,18 +1,17 @@
-import React from "react";
 import Header from "../../components/header/header";
-import Navbar from "../../components/navbar";
 import { Wrapper } from "./home.styled";
+import { NavbarSimple } from "../../components/navbar";
 
 const Home = () => {
-    return(
+    return (
         <>
-         <Header />
-        <Wrapper>       
-            <Navbar />
-            HOME
-        </Wrapper>           
+            <Header />
+            <Wrapper>
+                <NavbarSimple />
+                HOME
+            </Wrapper>
         </>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

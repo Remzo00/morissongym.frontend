@@ -1,28 +1,22 @@
-import Icons from "../../assets/icons";
-import { Wrapper, Text, StyledLink } from "./index.styled";
-import cx from 'classnames';
+import { useState } from "react";
+import { Navbar } from "@mantine/core";
+import { useStyles } from "./NavbarStyles";
+import { data } from "./NavbarData";
+import { NavbarItem } from "./NavbarLinks";
 
-const Navbar = () => {
+export function NavbarSimple() {
+    const { classes } = useStyles();
+    const [active, setActive] = useState("");
 
-  return (
-    <Wrapper>
-      <StyledLink to={"/"}>
-        <Text><Icons.Home /> Home</Text>
-      </StyledLink>
-      <StyledLink to={"/daily"}>
-        <Text> <Icons.Daily /> Daily</Text>
-      </StyledLink>
-      <StyledLink to={"/members"}>             
-        <Text> <Icons.Members /> Members</Text>
-      </StyledLink>
-      <StyledLink to={"/coachs"}>        
-        <Text><Icons.Members/> Coach</Text>
-      </StyledLink>
-      <StyledLink to={"/settings"}>       
-        <Text><Icons.Settings/> Settings</Text>
-      </StyledLink>
-    </Wrapper>
-  );
-};
+    const links = data.map((item) => (
+        <NavbarItem setActive={setActive} active={active} item={item} />
+    ));
 
-export default Navbar;
+    return (
+        <Navbar p="lg" className={classes.wrapper}>
+            <Navbar.Section grow className={classes.section}>
+                {links}
+            </Navbar.Section>
+        </Navbar>
+    );
+}
