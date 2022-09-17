@@ -1,62 +1,58 @@
 import styled from "styled-components";
 
-interface Props{
-    marignBottom?:number
+interface Props {
+  marignBottom?: number;
 }
 
-
-export const Main = styled.div`
-    margin: auto;
-    background-color: ${(props) => props.theme.colors.black};
-    color: ${(props) => props.theme.colors.white};
-`;
-
 export const Wrapper = styled.div`
-    display: flex;
+  padding-top: 20px;
+  background-color: black;
+  color: white;
+  display: flex;
+  width: 100%;
 `;
 export const ImgWrapper = styled.div`
-    display: block;
-
+  display: block;
 `;
 
 export const Services = styled.div`
-    display: flex;
+  display: flex;
 `;
 
 export const WrapDailyImg = styled.div<Props>`
-    background-color: white;
-    height: 100%;
-    width: 500px;
-    margin-top: 20px;
-    margin-bottom: ${props=>(`${props.marignBottom ? props.marignBottom : 20}px`)};
-    margin-left: 50px;
-    border-radius: 12px;
-`
+  background-color: white;
+  height: 100%;
+  width: 500px;
+  margin-top: 20px;
+  margin-bottom: ${(props) =>
+    `${props.marignBottom ? props.marignBottom : 20}px`};
+  margin-left: 50px;
+  border-radius: 12px;
+`;
 
 export const Dailyimg = styled.img`
-    &:hover{
-        opacity: 0.8;
-        transition: opacity 0.2s;
-    }
-    width: 100%;
-    height: 100.2%;
-    cursor: pointer;
-    border-radius: 10px;
+  &:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  width: 100%;
+  height: 100.2%;
+  cursor: pointer;
+  border-radius: 10px;
 `;
-export const Title = styled.p`
-`;
+export const Title = styled.p``;
 
 export const HeadingWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
 `;
 
 export const Heading = styled.h2`
-    padding-left: 10%;
-    margin-bottom: 0;
-    font-weight: 900;
-    font-size: 20px;
-    letter-spacing: 1px;
+  padding-left: 10%;
+  margin-bottom: 0;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 1px;
 `;

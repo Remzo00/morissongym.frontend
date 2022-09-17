@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
 export const Wrapper = styled.div`
-  width: 17vw;
-  height: 100vh;
+  width: 376px;
+  height: 770px;
+  position: static;
   background-color: ${(props) => props.theme.colors.gray};
   flex-direction: column;
 `;
