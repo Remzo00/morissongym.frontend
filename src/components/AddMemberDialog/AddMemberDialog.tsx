@@ -30,7 +30,9 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
       >
         <Title>Add Member</Title>
         <Wrapper>
-          <Text>Full Name</Text>
+          <Text>First Name</Text>
+          <Input />
+          <Text>Last Name</Text>
           <Input />
           <Text>Contact</Text>
           <Input />

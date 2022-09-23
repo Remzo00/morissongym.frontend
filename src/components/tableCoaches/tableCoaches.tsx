@@ -4,12 +4,46 @@ import { Button, Table } from "@mantine/core";
 import { Th } from "./tableCoaches.styled";
 import api from "../../api";
 import { Coach } from "../../types/types";
+import EditCoachDialog from "../EditCoachDialog/EditCoachDialog";
 
 const TableCoaches = () => {
   const [data, setData] = useState<Coach[]>([]);
+  const [id, setId] = useState(Number);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [modal, setModal] = useState(false);
+
+  const editCoachHandler = () => {
+    setModal(true);
+  };
+
+  const updateCoach = () => {
+    api.updateCoach({
+      id,
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      user: {
+        id: 0,
+        userName: "string",
+        firstName: "string",
+        lastName: "string",
+        email: "user@example.com",
+        roleId: 0,
+        role: {
+          id: 0,
+          name: "string",
+        },
+        userCode: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      },
+    });
+  };
 
   useEffect(() => {
-    api.fetchCoachs().then((res) => {
+    api.getCoachs().then((res) => {
       setData(res.result);
     });
   }, []);
@@ -23,7 +57,10 @@ const TableCoaches = () => {
       <td>{coach.phoneNumber}</td>
       <td>{coach.email}</td>
       <td>
-        <Button />
+        <Button type="submit" onClick={editCoachHandler} />
+        {modal && (
+          <EditCoachDialog opened={modal} setOpened={setModal} coach={coach} />
+        )}
       </td>
     </tr>
   ));

@@ -2,31 +2,32 @@ import React, { useState, useEffect } from "react";
 import { Table, Button } from "@mantine/core";
 import { Th } from "./table.styled";
 import Icons from "../../assets/icons";
-import { User } from "../../types/types";
+import { Customer } from "../../types/types";
 import api from "../../api";
 
 //TODO
 //pass func rows in <tbody>
 
 const TableComp = () => {
-  const [data, setData] = useState<User[]>([]);
+  const [data, setData] = useState<Customer[]>([]);
 
   useEffect(() => {
-    api.fetchUsers().then((res) => {
+    api.getCustomers().then((res) => {
       setData(res.result);
     });
   }, []);
 
-  const rows = data.map((user, index) => {
+  const rows = data.map((customer, index) => {
     <tr key={index}>
       <td>
         <Icons.Checked />
       </td>
-      <td>{user.userName}</td>
-      <td>{user.firstName}</td>
-      <td>{user.lastName}</td>
-      <td>{user.email}</td>
-      <td>{user.phoneNumber}</td>
+      <td>{customer.firstName}</td>
+      <td>{customer.lastName}</td>
+      <td>{customer.phoneNumber}</td>
+      <td>{customer.email}</td>
+      <td>{customer.startDate}</td>
+      <td>{customer.endDate}</td>
       <td>
         <Button />
       </td>
@@ -45,8 +46,10 @@ const TableComp = () => {
       <thead>
         <tr>
           <Th>Status</Th>
-          <Th>Name</Th>
-          <Th>Contact</Th>
+          <Th>First Name</Th>
+          <Th>Last Name</Th>
+          <Th>Email</Th>
+          <Th>Phone</Th>
           <Th>Start Date</Th>
           <Th>End Date</Th>
           <Th>Edit</Th>
