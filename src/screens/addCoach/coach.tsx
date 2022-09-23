@@ -1,15 +1,12 @@
 import React from "react";
 import Header from "../../components/header/header";
-import Navbar from "../../components/navbar";
 import AddCoach from "./AddCoach";
-import { Main, Wrapper } from "./coach.styled";
+import { Main } from "./coach.styled";
 
 const Coaches = () => {
   return (
     <Main>
-      <Wrapper>
-        <AddCoach />
-      </Wrapper>
+      <AddCoach />
     </Main>
   );
 };

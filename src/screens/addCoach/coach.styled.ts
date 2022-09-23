@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-    
-`
-
-export const Wrapper = styled.div`
-    display: flex;
-`
+  background-color: black;
+  width: 100%;
+  padding: 20px;
+`;
