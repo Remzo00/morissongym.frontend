@@ -27,7 +27,7 @@ const LoginPage = () => {
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    api.getLogin(data).then((res) => {
+    api.postLogin(data).then((res) => {
       //get token from response
       const token = res.data.token;
       //set JWT token to local

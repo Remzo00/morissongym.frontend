@@ -1,5 +1,5 @@
-import React from "react";
-import { Modal, Button, Group } from "@mantine/core";
+import React, { useState } from "react";
+import { Modal, Button, Group, TextInput } from "@mantine/core";
 import {
   Main,
   Wrapper,
@@ -10,6 +10,7 @@ import {
   ConfirmButton,
   ButtonDiv,
 } from "./AddCoachDialog.styled";
+import api from "../../api";
 
 type Props = {
   opened: boolean;
@@ -17,6 +18,34 @@ type Props = {
 };
 
 const AddCoachDialog = ({ opened, setOpened }: Props) => {
+  const [id, setId] = useState(Number);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+
+  const postData = () => {
+    api.addCoach({
+      id,
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      user: {
+        id: 0,
+        userName: "string",
+        firstName: "string",
+        lastName: "string",
+        email: "user@example.com",
+        roleId: 0,
+        role: {
+          id: 0,
+          name: "string",
+        },
+        userCode: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      },
+    });
+  };
   const cancelHandler = () => {
     setOpened(false);
   };
@@ -30,18 +59,18 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
       >
         <Title>Add Coach</Title>
         <Wrapper>
-          <Text>Full Name</Text>
-          <Input />
+          <Text>First Name</Text>
+          <Input onChange={(e) => setFirstName(e.target.value)} />
+          <Text>Last Name</Text>
+          <Input onChange={(e) => setLastName(e.target.value)} />
           <Text>Contact</Text>
-          <Input />
-          <Text>Start Date</Text>
-          <Input />
-          <Text>End Date</Text>
-          <Input />
+          <Input onChange={(e) => setPhoneNumber(e.target.value)} />
+          <Text>Email</Text>
+          <Input onChange={(e) => setEmail(e.target.value)} />
         </Wrapper>
         <ButtonDiv>
-          <CancelButton>Cancel</CancelButton>
-          <ConfirmButton>Next</ConfirmButton>
+          <CancelButton onClick={cancelHandler}>Cancel</CancelButton>
+          <ConfirmButton onClick={postData}>Next</ConfirmButton>
         </ButtonDiv>
       </Modal>
       <Group position="center">

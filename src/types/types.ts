@@ -14,6 +14,7 @@ export type Customer = {
   endDate: string;
 };
 export type Coach = {
+  id: number;
   firstName: string;
   lastName: string;
   phoneNumber: string;
