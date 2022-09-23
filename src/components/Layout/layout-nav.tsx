@@ -1,16 +1,16 @@
-import Navbar from "../navbar";
 import Header from "../header/header";
+import { NavbarSimple } from "../navbar";
 interface LayoutInterface {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 export default function LayoutNav(props: LayoutInterface) {
-  return (
-    <>
-      <Header />
-      <div style={{ display: "flex", margin: 0 }}>
-        <Navbar />
-        {props.children}
-      </div>
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <div style={{ display: "flex", margin: 0 }}>
+                <NavbarSimple />
+                {props.children}
+            </div>
+        </>
+    );
 }

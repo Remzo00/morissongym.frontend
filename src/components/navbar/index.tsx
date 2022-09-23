@@ -1,39 +1,30 @@
-import Icons from "../../assets/icons";
-import { Wrapper, Text, StyledLink } from "./index.styled";
-import cx from "classnames";
+import { useState } from "react";
+import { Navbar } from "@mantine/core";
+import { useStyles } from "./NavbarStyles";
+import { data } from "./NavbarData";
+import { NavbarItem } from "./NavbarLinks";
 
-const Navbar = () => {
-  return (
-    <Wrapper>
-      <StyledLink to={"/"}>
-        <Text>
-          <Icons.Home /> Home
-        </Text>
-      </StyledLink>
-      <StyledLink to={"/daily"}>
-        <Text>
-          {" "}
-          <Icons.Daily /> Daily
-        </Text>
-      </StyledLink>
-      <StyledLink to={"/members"}>
-        <Text>
-          {" "}
-          <Icons.Members /> Members
-        </Text>
-      </StyledLink>
-      <StyledLink to={"/coachs"}>
-        <Text>
-          <Icons.Members /> Coach
-        </Text>
-      </StyledLink>
-      <StyledLink to={"/settings"}>
-        <Text>
-          <Icons.Settings /> Settings
-        </Text>
-      </StyledLink>
-    </Wrapper>
-  );
-};
+export function NavbarSimple() {
+    const { classes } = useStyles();
+    const [active, setActive] = useState("");
 
-export default Navbar;
+    const links = data.map((item) => (
+        <NavbarItem setActive={setActive} active={active} item={item} />
+    ));
+
+    return (
+        <Navbar p="lg" className={classes.wrapper}>
+            <div
+                style={{
+                    height: 700,
+                    position: "sticky",
+                    top: 0,
+                }}
+            >
+                <Navbar.Section grow className={classes.section}>
+                    {links}
+                </Navbar.Section>
+            </div>
+        </Navbar>
+    );
+}
