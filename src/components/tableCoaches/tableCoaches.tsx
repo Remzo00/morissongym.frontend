@@ -5,7 +5,6 @@ import { Table, Td, Th, Tr, TrHead } from "./tableCoaches.styled";
 import api from "../../api";
 import { Coach } from "../../types/types";
 import EditCoachDialog from "../EditCoachDialog/EditCoachDialog";
-import axios from "axios";
 
 const TableCoaches = () => {
   const [data, setData] = useState<Coach[]>([]);
@@ -50,33 +49,6 @@ const TableCoaches = () => {
   }, []);
 
   const rows = data.map((coach, index) => (
-    <tr key={index}>
-      <td>
-        <Icons.Checked />
-      </td>
-      <td>{coach.firstName}</td>
-      <td>{coach.lastName}</td>
-      <td>{coach.phoneNumber}</td>
-      <td>{coach.email}</td>
-      <td>
-        <Button type="submit" onClick={editCoachHandler} />
-        {modal && (
-          <EditCoachDialog opened={modal} setOpened={setModal} coach={coach} />
-        )}
-      </td>
-    </tr>
-  ));
-
-  // MockApi
-  useEffect(() => {
-    axios
-      .get("https://632e00f7b37236d2ebe4b160.mockapi.io/Coach")
-      .then((resolve) => {
-        setData(resolve.data);
-      });
-  }, []);
-
-  const rowsed = data.map((coach, index) => (
     <Tr key={index}>
       <Td>
         <Icons.Checked />
@@ -106,7 +78,7 @@ const TableCoaches = () => {
           <Th>Edit</Th>
         </TrHead>
       </thead>
-      <tbody>{rowsed}</tbody>
+      <tbody>{rows}</tbody>
     </Table>
   );
 };
