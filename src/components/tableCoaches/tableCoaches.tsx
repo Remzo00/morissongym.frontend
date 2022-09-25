@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Icons from "../../assets/icons";
-import { Button, Table } from "@mantine/core";
-import { Th } from "./tableCoaches.styled";
+import { Button } from "@mantine/core";
+import { Table, Td, Th, Tr, TrHead } from "./tableCoaches.styled";
 import api from "../../api";
 import { Coach } from "../../types/types";
 import EditCoachDialog from "../EditCoachDialog/EditCoachDialog";
@@ -47,42 +47,36 @@ const TableCoaches = () => {
       setData(res.result);
     });
   }, []);
+
   const rows = data.map((coach, index) => (
-    <tr key={index}>
-      <td>
+    <Tr key={index}>
+      <Td>
         <Icons.Checked />
-      </td>
-      <td>{coach.firstName}</td>
-      <td>{coach.lastName}</td>
-      <td>{coach.phoneNumber}</td>
-      <td>{coach.email}</td>
-      <td>
+      </Td>
+      <Td>{coach.firstName}</Td>
+      <Td>{coach.lastName}</Td>
+      <Td>{coach.phoneNumber}</Td>
+      <Td>{coach.email}</Td>
+      <Td>
         <Button type="submit" onClick={editCoachHandler} />
         {modal && (
           <EditCoachDialog opened={modal} setOpened={setModal} coach={coach} />
         )}
-      </td>
-    </tr>
+      </Td>
+    </Tr>
   ));
 
   return (
-    <Table
-      fontSize="lg"
-      verticalSpacing="sm"
-      style={{ color: "white" }}
-      sx={(theme) => ({
-        backgroundColor: theme.colors.black,
-      })}
-    >
+    <Table>
       <thead>
-        <tr>
+        <TrHead>
           <Th>Status</Th>
           <Th>First Name</Th>
           <Th>Last Name</Th>
           <Th>Contact</Th>
           <Th>Email</Th>
           <Th>Edit</Th>
-        </tr>
+        </TrHead>
       </thead>
       <tbody>{rows}</tbody>
     </Table>
