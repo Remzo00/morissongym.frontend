@@ -17,6 +17,38 @@ class Api {
       await this.api.get("/Customer");
     return response.data;
   }
+  async addCustomer(params: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+    email: string;
+    startDate: Date;
+    endDate: Date;
+  }) {
+    const response: ServerResponse<ApiDataResponse<Customer[]>> =
+      await this.api.post("/Customer", { ...params });
+    return response.data;
+  }
+  async updateCustomer(params: {
+    id?: number;
+    firstName?: string;
+    lastName?: string;
+    phoneNumber?: string;
+    email?: string;
+    startDate?: Date;
+    endDate?: Date;
+  }) {
+    const response: ServerResponse<ApiDataResponse<Customer[]>> =
+      await this.api.put("/Customer", { ...params });
+    return response.data;
+  }
+  async deleteCustomer(id: number) {
+    const response: ServerResponse<ApiDataResponse<Customer[]>> =
+      await this.api.delete(`/Customer?id=${id}`);
+    return response.data;
+  }
+
   async getUsers() {
     const response = await this.api.get("/User");
     return response.data;
@@ -26,6 +58,7 @@ class Api {
       await this.api.get("/Coach");
     return response.data;
   }
+
   async addCoach(params: {
     id: number;
     firstName: string;
