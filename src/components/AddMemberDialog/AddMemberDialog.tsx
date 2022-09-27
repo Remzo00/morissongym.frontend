@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal, Button, Group } from "@mantine/core";
 import {
   ButtonDiv,
@@ -10,6 +10,7 @@ import {
   Text,
   Title,
 } from "./AddMemberDialog.styled";
+import api from "../../api";
 
 type Props = {
   opened: boolean;
@@ -17,6 +18,22 @@ type Props = {
 };
 
 const AddMemberDialog = ({ opened, setOpened }: Props) => {
+  const [id, setId] = useState(Number);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+
+  const postData = () => {
+    api.addCustomer({
+      id,
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+    });
+  };
+
   const cancelHandler = () => {
     setOpened(false);
   };
@@ -31,11 +48,13 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
         <Title>Add Member</Title>
         <Wrapper>
           <Text>First Name</Text>
-          <Input />
+          <Input onChange={(e) => setFirstName(e.target.value)} />
           <Text>Last Name</Text>
-          <Input />
+          <Input onChange={(e) => setLastName(e.target.value)} />
           <Text>Contact</Text>
-          <Input />
+          <Input onChange={(e) => setPhoneNumber(e.target.value)} />
+          <Text>Email</Text>
+          <Input onChange={(e) => setEmail(e.target.value)} />
           <Text>Start Date</Text>
           <Input />
           <Text>End Date</Text>
@@ -43,7 +62,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
         </Wrapper>
         <ButtonDiv>
           <CancelButton onClick={cancelHandler}>Cancel</CancelButton>
-          <ConfirmButton>Next</ConfirmButton>
+          <ConfirmButton onClick={postData}>Confirm</ConfirmButton>
         </ButtonDiv>
       </Modal>
 

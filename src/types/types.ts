@@ -6,12 +6,13 @@ export type User = {
   email: string;
 };
 export type Customer = {
+  id: number;
   firstName: string;
   lastName: string;
   phoneNumber: string;
   email: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
 };
 export type Coach = {
   id: number;
