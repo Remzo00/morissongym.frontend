@@ -10,19 +10,19 @@ import TableComp from "../tableMembers/table";
 import AddMemberDialog from "../AddMemberDialog/AddMemberDialog";
 
 const MembersPanel = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const addMemberHandler = () => {
-    setIsOpen(true)
-  }
-  
+    setIsOpen(true);
+  };
+
   return (
     <>
       <Wrapper>
         <HeadingWrapper>
           <Heading>Members list</Heading>
           <Button onClick={addMemberHandler}>Add members</Button>
-          {isOpen && <AddMemberDialog opened={isOpen} setOpened={setIsOpen}/>}
+          {isOpen && <AddMemberDialog opened={isOpen} setOpened={setIsOpen} />}
         </HeadingWrapper>
         <TableWrapper>
           <TableComp />
