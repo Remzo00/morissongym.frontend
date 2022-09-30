@@ -1,5 +1,4 @@
-import Header from "../../components/header/header";
-import Navbar from "../../components/navbar";
+import AddSupplementsDialog from "../../components/addSupplementsDialog/addSupplementsDialog";
 import {
   Wrapper,
   Services,
@@ -13,10 +12,13 @@ import supplements from "../../assets/images/supplements.png";
 import training from "../../assets/images/training.png";
 import drinks from "../../assets/images/drinks.png";
 import food from "../../assets/images/food.png";
+import { useState } from "react";
 
 const Daily = () => {
+  const [opened, setOpened] = useState(false);
   return (
     <Wrapper>
+      <AddSupplementsDialog opened={opened} setOpened={setOpened} />
       <ImgWrapper>
         <Services>
           <HeadingWrapper>
@@ -28,7 +30,12 @@ const Daily = () => {
           <HeadingWrapper>
             <Heading>Suplements</Heading>
             <WrapDailyImg>
-              <Dailyimg src={supplements} />
+              <Dailyimg
+                src={supplements}
+                onClick={() => {
+                  setOpened(true);
+                }}
+              />
             </WrapDailyImg>
           </HeadingWrapper>
         </Services>

@@ -15,6 +15,7 @@ const Rfid = () => {
   return (
     <>
       <RfidModal show={show} />
+
       <Container show={show}>
         <RfidWrapper>
           <RfidTitle>Scan RFID</RfidTitle>
