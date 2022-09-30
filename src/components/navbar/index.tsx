@@ -7,8 +7,6 @@ import { NavbarItem } from "./NavbarLinks";
 export function NavbarSimple() {
   const { classes } = useStyles();
   const [active, setActive] = useState("");
-  const { colorScheme } = useMantineColorScheme();
-  const isDark = colorScheme === "dark";
 
   const links = data.map((item) => (
     <NavbarItem setActive={setActive} active={active} item={item} />
