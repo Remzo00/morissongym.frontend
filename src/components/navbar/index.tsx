@@ -1,30 +1,32 @@
 import { useState } from "react";
-import { Navbar } from "@mantine/core";
+import { Navbar, useMantineColorScheme } from "@mantine/core";
 import { useStyles } from "./NavbarStyles";
 import { data } from "./NavbarData";
 import { NavbarItem } from "./NavbarLinks";
 
 export function NavbarSimple() {
-    const { classes } = useStyles();
-    const [active, setActive] = useState("");
+  const { classes } = useStyles();
+  const [active, setActive] = useState("");
+  const { colorScheme } = useMantineColorScheme();
+  const isDark = colorScheme === "dark";
 
-    const links = data.map((item) => (
-        <NavbarItem setActive={setActive} active={active} item={item} />
-    ));
+  const links = data.map((item) => (
+    <NavbarItem setActive={setActive} active={active} item={item} />
+  ));
 
-    return (
-        <Navbar p="lg" className={classes.wrapper}>
-            <div
-                style={{
-                    height: 700,
-                    position: "sticky",
-                    top: 0,
-                }}
-            >
-                <Navbar.Section grow className={classes.section}>
-                    {links}
-                </Navbar.Section>
-            </div>
-        </Navbar>
-    );
+  return (
+    <Navbar p="lg" className={classes.wrapper}>
+      <div
+        style={{
+          height: 700,
+          position: "sticky",
+          top: 0,
+        }}
+      >
+        <Navbar.Section grow className={classes.section}>
+          {links}
+        </Navbar.Section>
+      </div>
+    </Navbar>
+  );
 }

@@ -6,21 +6,36 @@ import Home from "./screens/home/home";
 import Daily from "./screens/daily/daily";
 import Settings from "./screens/settings/settings";
 import LayoutNav from "./components/Layout/layout-nav";
+import { useState } from "react";
+import { ColorScheme, ColorSchemeProvider } from "@mantine/core";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./assets/theme";
 import Rfid from "./screens/rfid/rfid";
 
 const App = () => {
+  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+
   return (
-    <LayoutNav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/daily" element={<Daily />} />
-        <Route path="/rfid" element={<Rfid />} />
-        <Route path="/coachs" element={<Coach />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/members" element={<Members />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </LayoutNav>
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
+      <ThemeProvider theme={{ colorScheme, ...theme }}>
+        <LayoutNav>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/daily" element={<Daily />} />
+            <Route path="/rfid" element={<Rfid />} />
+            <Route path="/coachs" element={<Coach />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/members" element={<Members />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
+        </LayoutNav>
+      </ThemeProvider>
+    </ColorSchemeProvider>
   );
 };
 export default App;

@@ -1,3 +1,4 @@
+import ThemeButton from "../themeButton";
 import { EmployesNameTxt, InlineTxt, Input, Main, Text } from "./header.styled";
 
 const Header = () => {
@@ -6,7 +7,8 @@ const Header = () => {
       <Text>
         <InlineTxt>gym</InlineTxt>panel
       </Text>
-      <Input placeholder="Search" />
+
+      <ThemeButton />
       <EmployesNameTxt>Employes Name</EmployesNameTxt>
     </Main>
   );
