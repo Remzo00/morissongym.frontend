@@ -6,6 +6,7 @@ import Home from "./screens/home/home";
 import Daily from "./screens/daily/daily";
 import Settings from "./screens/settings/settings";
 import LayoutNav from "./components/Layout/layout-nav";
+import Rfid from "./screens/rfid/rfid";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/daily" element={<Daily />} />
+        <Route path="/rfid" element={<Rfid />} />
         <Route path="/coachs" element={<Coach />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/members" element={<Members />} />
