@@ -12,6 +12,7 @@ export const useStyles = createStyles((theme, _params, getRef) => {
       textDecoration: "none",
       fontSize: theme.fontSizes.sm,
       color: theme.colors.dark[1],
+      // color: isDark ? theme.colors.white : theme.colors.dark,
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
@@ -31,7 +32,7 @@ export const useStyles = createStyles((theme, _params, getRef) => {
 
     linkIcon: {
       ref: icon,
-      color: "white",
+      // color: isDark ? theme.colors.white : theme.colors.dark[7],
       marginRight: theme.spacing.sm,
     },
 
@@ -51,7 +52,7 @@ export const useStyles = createStyles((theme, _params, getRef) => {
     wrapper: {
       height: "auto",
       width: 400,
-      background: isDark ? theme.colors.dark[7] : theme.colors.white,
+      background: isDark ? theme.colors.white : theme.colors.dark[7],
       border: 0,
       position: "sticky",
       top: 0,
