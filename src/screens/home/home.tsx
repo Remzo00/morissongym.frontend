@@ -44,6 +44,7 @@ const Home: React.FC = () => {
       },
     ],
   };
+
   return (
     <HomeContainer>
       <WrapCardContainer>
