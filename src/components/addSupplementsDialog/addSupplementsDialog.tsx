@@ -15,7 +15,7 @@ type Props = {
   setOpened: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const addSupplementsDialog = ({ opened, setOpened }: Props) => {
+const AddSupplementsDialog = ({ opened, setOpened }: Props) => {
   const cancelHandle = () => {
     setOpened(false);
   };
@@ -48,12 +48,8 @@ const addSupplementsDialog = ({ opened, setOpened }: Props) => {
           <ConfirmButton>Next</ConfirmButton>
         </GroupBtn>
       </Modal>
-
-      <Group position="center">
-        <Button onClick={() => setOpened(true)}>Open Modal</Button>
-      </Group>
     </Main>
   );
 };
 
-export default addSupplementsDialog;
+export default AddSupplementsDialog;
