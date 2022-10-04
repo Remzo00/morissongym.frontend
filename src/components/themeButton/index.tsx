@@ -45,6 +45,10 @@ function ThemeButton() {
   const { classes } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const Icon = colorScheme === "dark" ? IconSun : IconMoon;
+  const isDark =
+    colorScheme === "dark" ? "rgba(255, 255, 255, 0.11)" : "#e5e4e2";
+  const isLight =
+    colorScheme === "light" ? "#e5e4e2" : "rgba(255, 255, 255, 0.11)";
 
   return (
     <Group position="center" my="xl">
@@ -53,6 +57,7 @@ function ThemeButton() {
         className={classes.control}
         onClick={() => toggleColorScheme()}
         title="Ctrl + J"
+        style={{ backgroundColor: colorScheme === "dark" ? isLight : isDark }}
       >
         <Text size="sm" className={classes.value}>
           {upperFirst(colorScheme === "light" ? "dark" : "light")} theme

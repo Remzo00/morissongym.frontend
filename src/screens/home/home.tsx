@@ -28,8 +28,11 @@ import {
   Dash,
   DashText,
 } from "./home.styled";
+import { useMantineColorScheme } from "@mantine/core";
 
 const Home: React.FC = () => {
+  const { colorScheme } = useMantineColorScheme();
+  const isDark = colorScheme === "dark";
   const state = {
     labels: ["January", "February", "March", "April", "May"],
     datasets: [
@@ -46,13 +49,13 @@ const Home: React.FC = () => {
   };
 
   return (
-    <HomeContainer>
+    <HomeContainer isDark={isDark}>
       <WrapCardContainer>
-        <CardTitle>Activity</CardTitle>
-        <CardContainer>
-          <CardGymTime>
-            <GymNow>
-              <CardP>In the gym:</CardP>
+        <CardTitle isDark={isDark}>Activity</CardTitle>
+        <CardContainer isDark={isDark}>
+          <CardGymTime isDark={isDark}>
+            <GymNow isDark={isDark}>
+              <CardP isDark={isDark}>In the gym:</CardP>
               <h1>24</h1>
               <ProgressCircle>
                 <CircularProgressbar
@@ -66,8 +69,8 @@ const Home: React.FC = () => {
                 />
               </ProgressCircle>
             </GymNow>
-            <GymNow>
-              <CardP>Average:</CardP>
+            <GymNow isDark={isDark}>
+              <CardP isDark={isDark}>Average:</CardP>
               <h1>24</h1>
               <ProgressCircle>
                 <CircularProgressbar
@@ -86,9 +89,9 @@ const Home: React.FC = () => {
       </WrapCardContainer>
 
       <WrapCardContainer>
-        <CardTitle>Overview</CardTitle>
-        <CardContainer background={"rgba(255, 255, 255, 0.07);"}>
-          <CardP>Tracking history:</CardP>
+        <CardTitle isDark={isDark}>Overview</CardTitle>
+        <CardContainer isDark={isDark}>
+          <CardP isDark={isDark}>Tracking history:</CardP>
           <CardOverview>
             <DashContainer>
               <Dash height={70}></Dash>
@@ -124,9 +127,9 @@ const Home: React.FC = () => {
         </CardContainer>
       </WrapCardContainer>
       <WrapCardContainer marginBottom={30}>
-        <CardTitle>Summary</CardTitle>
-        <CardContainer background="rgba(255, 255, 255, 0.07);">
-          <CardP>New clients:</CardP>
+        <CardTitle isDark={isDark}>Summary</CardTitle>
+        <CardContainer isDark={isDark}>
+          <CardP isDark={isDark}>New clients:</CardP>
           <CardOverview>
             <Line
               data={state}
@@ -153,9 +156,9 @@ const Home: React.FC = () => {
         </CardContainer>
       </WrapCardContainer>
       <WrapCardContainer marginBottom={30}>
-        <CardTitle>Chart</CardTitle>
-        <CardContainer background="rgba(255, 255, 255, 0.07);">
-          <CardP>Tracking history:</CardP>
+        <CardTitle isDark={isDark}>Chart</CardTitle>
+        <CardContainer isDark={isDark}>
+          <CardP isDark={isDark}>Tracking history:</CardP>
           <CardOverview>
             <DashContainer>
               <DashText>Mon</DashText>
