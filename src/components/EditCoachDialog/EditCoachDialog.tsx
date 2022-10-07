@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal } from "@mantine/core";
+import { Modal, TextInput } from "@mantine/core";
 import {
   Main,
   Wrapper,
@@ -12,6 +12,8 @@ import {
 } from "./EditCoachDialog.styled";
 import api from "../../api";
 import { Coach } from "../../types/types";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 
 type Props = {
   opened: boolean;
@@ -21,6 +23,22 @@ type Props = {
 
 const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
   const [coachValues, setCoachValues] = useState(coach);
+
+  const EditCoachSchema = Yup.object().shape({
+    firstName: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    lastName: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    phoneNumber: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
+  });
 
   const deleteData = (id: number) => {
     api.deleteCoach(id);
@@ -61,41 +79,114 @@ const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
       >
         <Title>Edit Coach</Title>
         <Wrapper>
-          <Text>First Name</Text>
-          <Input
-            onChange={(e) =>
-              setCoachValues({ ...coachValues, firstName: e.target.value })
-            }
-            value={coachValues.firstName}
-          />
-          <Text>Last Name</Text>
-          <Input
-            onChange={(e) =>
-              setCoachValues({ ...coachValues, lastName: e.target.value })
-            }
-            value={coachValues.lastName}
-          />
-          <Text>Contact</Text>
-          <Input
-            onChange={(e) =>
-              setCoachValues({ ...coachValues, phoneNumber: e.target.value })
-            }
-            value={coachValues.phoneNumber}
-          />
-          <Text>Email</Text>
-          <Input
-            onChange={(e) =>
-              setCoachValues({ ...coachValues, email: e.target.value })
-            }
-            value={coachValues.email}
-          />
+          <Formik
+            initialValues={{
+              firstName: "",
+              lastName: "",
+              email: "",
+              phoneNumber: "",
+            }}
+            validationSchema={EditCoachSchema}
+            onSubmit={(values) => {
+              console.log(values);
+            }}
+          >
+            {({ errors, touched }) => (
+              <Form>
+                <Text>First Name</Text>
+                <Field name="firstName">
+                  {({ field, form: { touched, errors }, meta }: any) => (
+                    <div>
+                      <TextInput
+                        type="text"
+                        onChange={(e) =>
+                          setCoachValues({
+                            ...coachValues,
+                            firstName: e.target.value,
+                          })
+                        }
+                        value={coachValues.firstName}
+                        {...field}
+                      />
+                      {meta.touched && meta.error && (
+                        <div className="error">{meta.error}</div>
+                      )}
+                    </div>
+                  )}
+                </Field>
+                <Text>Last Name</Text>
+                <Field name="lastName">
+                  {({ field, form: { touched, errors }, meta }: any) => (
+                    <div>
+                      <TextInput
+                        type="text"
+                        onChange={(e) =>
+                          setCoachValues({
+                            ...coachValues,
+                            lastName: e.target.value,
+                          })
+                        }
+                        value={coachValues.lastName}
+                        {...field}
+                      />
+                      {meta.touched && meta.error && (
+                        <div className="error">{meta.error}</div>
+                      )}
+                    </div>
+                  )}
+                </Field>
+                <Text>Contact</Text>
+                <Field name="phoneNumber">
+                  {({ field, form: { touched, errors }, meta }: any) => (
+                    <div>
+                      <TextInput
+                        type="text"
+                        onChange={(e) =>
+                          setCoachValues({
+                            ...coachValues,
+                            phoneNumber: e.target.value,
+                          })
+                        }
+                        value={coachValues.phoneNumber}
+                        {...field}
+                      />
+                      {meta.touched && meta.error && (
+                        <div className="error">{meta.error}</div>
+                      )}
+                    </div>
+                  )}
+                </Field>
+                <Text>Email</Text>
+                <Field name="email">
+                  {({ field, form: { touched, errors }, meta }: any) => (
+                    <div>
+                      <TextInput
+                        type="text"
+                        onChange={(e) =>
+                          setCoachValues({
+                            ...coachValues,
+                            email: e.target.value,
+                          })
+                        }
+                        value={coachValues.email}
+                        {...field}
+                      />
+                      {meta.touched && meta.error && (
+                        <div className="error">{meta.error}</div>
+                      )}
+                    </div>
+                  )}
+                </Field>
+                <ButtonDiv>
+                  <DeleteButton onClick={() => deleteData(coachValues.id)}>
+                    Delete
+                  </DeleteButton>
+                  <ConfirmButton onClick={postData}>Next</ConfirmButton>
+                </ButtonDiv>
+              </Form>
+            )}
+          </Formik>
         </Wrapper>
-        <ButtonDiv>
-          <DeleteButton onClick={() => deleteData(coachValues.id)}>
-            Delete
-          </DeleteButton>
-          <ConfirmButton onClick={postData}>Next</ConfirmButton>
-        </ButtonDiv>
       </Modal>
     </Main>
   );
