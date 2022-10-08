@@ -13,13 +13,13 @@ export const Wrapper = styled.div`
   border-radius: 0px;
 `;
 
-export const HomeContainer = styled.div`
+export const HomeContainer = styled.div<{isDark:boolean}>`
   width: fit-content;
   height: fit-content;
   padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
-  background-color: black;
+  background-color: ${props=>props.isDark?"#e5e4e2":"black"};
   align-items: center;
   justify-content: center;
 `;
@@ -28,7 +28,7 @@ export const WrapCardContainer = styled.div<Props>`
   margin-bottom: ${(props) => `${props.marginBottom}px`};
   flex-direction: column;
 `;
-export const CardContainer = styled.div<Props>`
+export const CardContainer = styled.div<{isDark:boolean}>`
   position: relative;
   border-radius: 10px;
   display: flex;
@@ -36,29 +36,45 @@ export const CardContainer = styled.div<Props>`
   width: 540px;
   height: 300px;
   margin: 20px 20px 0px 20px;
-  background: ${(props) => props.background && props.background};
+  background-color: ${(props) => props.isDark ? "gray" : "rgba(255, 255, 255, 0.11)"};
+  opacity: .8;
+  filter: alpha(opacity=50);
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  
 `;
-export const CardTitle = styled.h1`
+export const CardTitle = styled.h1<{isDark:boolean}>`
   color: white;
   font-size: 22px;
   font-weight: 700;
   margin: 20px 0px 0px 30px;
+  color: ${(props) => props.isDark ? "black" : "white"};
+  opacity: .8;
+  filter: alpha(opacity=50);
+  transition: all 1s;
+  -webkit-transition: all 1s;
 `;
-export const CardGymTime = styled.div`
+export const CardGymTime = styled.div<{isDark:boolean}>`
   display: flex;
   justify-content: space-between;
+  background-color: ${(props) => props.isDark ? "#e5e4e2" : "black"};
   width: 100%;
   height: 100%;
+  color: ${(props) => props.isDark ? "black" : "white"};
 `;
-export const GymNow = styled.div`
-  color: white;
+export const GymNow = styled.div<{isDark:boolean}>`
   width: 49%;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.07);
+  background-color: ${(props) => props.isDark ? "gray" : "rgba(255, 255, 255, 0.11)"};
+  // background-color: rgba(255, 255, 255, 0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: .8;
+  filter: alpha(opacity=50);
+  transition: all 1s;
+  -webkit-transition: all 1s;
 `;
 
 export const ProgressCircle = styled.div`
@@ -66,12 +82,12 @@ export const ProgressCircle = styled.div`
   height: 80px;
 `;
 
-export const CardP = styled.p`
+export const CardP = styled.p<{isDark:boolean}>`
   font-size: large;
-  color: white;
   margin: 0px;
   margin-left: 10px;
   margin-top: 20px;
+  color: ${(props) => props.isDark ? "black" : "white"};
 `;
 
 export const CardOverview = styled.div`
