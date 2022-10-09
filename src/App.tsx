@@ -15,7 +15,7 @@ import Rfid from "./screens/rfid/rfid";
 const App = () => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
   const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+    setColorScheme(value || (colorScheme === "dark" ? "dark" : "light"));
 
   return (
     <ColorSchemeProvider
