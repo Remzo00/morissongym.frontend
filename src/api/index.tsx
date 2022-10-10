@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Coach, Customer, Login } from "../types/types";
+import { Coach, Customer, Login, Register } from "../types/types";
 import { ApiDataResponse } from "./types";
 
 class Api {
@@ -91,6 +91,29 @@ class Api {
   async postLogin({ username }: { username: string }) {
     const response: ServerResponse<ApiDataResponse<Login>> =
       await this.api.post("/Auth/Login", { username });
+    return response.data;
+  }
+  async postRegister({
+    userCode,
+    firstName,
+    lastName,
+    email,
+    roleId,
+  }: {
+    userCode: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    roleId: number;
+  }) {
+    const response: ServerResponse<ApiDataResponse<Register>> =
+      await this.api.post("/Auth/Register", {
+        userCode,
+        firstName,
+        lastName,
+        email,
+        roleId,
+      });
     return response.data;
   }
 }
