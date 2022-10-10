@@ -32,6 +32,9 @@ export const Td = styled.td`
       display: flex;
       align-items: center;
     }
+    &:first-child {
+      margin-top: 25px;
+    }
   }
 `;
 

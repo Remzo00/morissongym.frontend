@@ -48,6 +48,7 @@ const TableCoaches = () => {
   //   });
   // }, []);
 
+  // This is just for visual example,delete when you check
   let dict = [
     {
       email: "gorcevichamaza76@gmail.com",
@@ -72,6 +73,7 @@ const TableCoaches = () => {
   useEffect(() => {
     setData(dict);
   }, []);
+
   const rows = data.map((coach, index) => (
     <Tr key={index}>
       <Td data-label="Status">
