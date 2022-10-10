@@ -24,3 +24,10 @@ export type Coach = {
 export type Login = {
   username: string;
 };
+export type Register = {
+  userCode: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  roleId: number;
+};

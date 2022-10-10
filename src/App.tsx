@@ -11,6 +11,7 @@ import { ColorScheme, ColorSchemeProvider } from "@mantine/core";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./assets/theme";
 import Rfid from "./screens/rfid/rfid";
+import RegisterForm from "./screens/register/register";
 
 const App = () => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
@@ -23,17 +24,18 @@ const App = () => {
       toggleColorScheme={toggleColorScheme}
     >
       <ThemeProvider theme={{ colorScheme, ...theme }}>
-        <LayoutNav>
-          <Routes>
+        <Routes>
+          <Route element={<LayoutNav />}>
             <Route path="/" element={<Home />} />
             <Route path="/daily" element={<Daily />} />
             <Route path="/rfid" element={<Rfid />} />
             <Route path="/coachs" element={<Coach />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/members" element={<Members />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </LayoutNav>
+          </Route>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/registar" element={<RegisterForm />} />
+        </Routes>
       </ThemeProvider>
     </ColorSchemeProvider>
   );
