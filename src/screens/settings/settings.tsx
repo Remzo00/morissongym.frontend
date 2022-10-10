@@ -31,7 +31,6 @@ const Settings = () => {
               data={[
                 { value: "english", label: "English" },
                 { value: "serbian", label: "Serbian" },
-                { value: "germany", label: "Germany" },
               ]}
               styles={() => ({
                 item: {
