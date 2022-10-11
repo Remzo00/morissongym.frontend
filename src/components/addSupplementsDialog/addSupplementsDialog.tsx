@@ -21,9 +21,15 @@ const AddSupplementsDialog = ({ opened, setOpened }: Props) => {
   };
   return (
     <Main>
+      {/* Changed width(size) */}
       <Modal
-        styles={{ modal: { backgroundColor: "black" } }}
-        size={"25%"}
+        styles={{
+          modal: {
+            backgroundColor: "black",
+            minWidth: "300px",
+            margin: "20px",
+          },
+        }}
         opened={opened}
         onClose={cancelHandle}
       >
