@@ -42,36 +42,10 @@ const TableCoaches = () => {
     });
   };
 
-  // useEffect(() => {
-  //   api.getCoachs().then((res) => {
-  //     setData(res.result);
-  //   });
-  // }, []);
-
-  // This is just for visual example,delete when you check
-  let dict = [
-    {
-      email: "gorcevichamaza76@gmail.com",
-      firstName: "Hamza",
-      lastName: "gorcevic",
-      phoneNumber: "0903121",
-    },
-    {
-      email: "gorcevichamaza76@gmail.com",
-      firstName: "Hamza",
-      lastName: "gorcevic",
-      phoneNumber: "0903121",
-    },
-    {
-      email: "gorcevichamaza76@gmail.com",
-      firstName: "Hamza",
-      lastName: "gorcevic",
-      phoneNumber: "0903121",
-    },
-  ];
-
   useEffect(() => {
-    setData(dict);
+    api.getCoachs().then((res) => {
+      setData(res.result);
+    });
   }, []);
 
   const rows = data.map((coach, index) => (
