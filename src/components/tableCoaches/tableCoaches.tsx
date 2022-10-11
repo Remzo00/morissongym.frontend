@@ -42,22 +42,48 @@ const TableCoaches = () => {
     });
   };
 
+  // useEffect(() => {
+  //   api.getCoachs().then((res) => {
+  //     setData(res.result);
+  //   });
+  // }, []);
+
+  // This is just for visual example,delete when you check
+  let dict = [
+    {
+      email: "gorcevichamaza76@gmail.com",
+      firstName: "Hamza",
+      lastName: "gorcevic",
+      phoneNumber: "0903121",
+    },
+    {
+      email: "gorcevichamaza76@gmail.com",
+      firstName: "Hamza",
+      lastName: "gorcevic",
+      phoneNumber: "0903121",
+    },
+    {
+      email: "gorcevichamaza76@gmail.com",
+      firstName: "Hamza",
+      lastName: "gorcevic",
+      phoneNumber: "0903121",
+    },
+  ];
+
   useEffect(() => {
-    api.getCoachs().then((res) => {
-      setData(res.result);
-    });
+    setData(dict);
   }, []);
 
   const rows = data.map((coach, index) => (
     <Tr key={index}>
-      <Td>
+      <Td data-label="Status">
         <Icons.Checked />
       </Td>
-      <Td>{coach.firstName}</Td>
-      <Td>{coach.lastName}</Td>
-      <Td>{coach.phoneNumber}</Td>
-      <Td>{coach.email}</Td>
-      <Td>
+      <Td data-label="Name">{coach.firstName}</Td>
+      <Td data-label="Last Name">{coach.lastName}</Td>
+      <Td data-label="Contact">{coach.phoneNumber}</Td>
+      <Td data-label="Email">{coach.email}</Td>
+      <Td data-label="Edit">
         <Button type="submit" onClick={editCoachHandler} />
         {modal && (
           <EditCoachDialog opened={modal} setOpened={setModal} coach={coach} />
