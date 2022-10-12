@@ -17,6 +17,17 @@ export const ImgWrapper = styled.div`
 
 export const Services = styled.div`
   display: flex;
+  flex-wrap: wrap;
+`;
+export const Heading = styled.h2`
+  padding-left: 10%;
+  margin-bottom: 0;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 1px;
+  @media (max-width: 700px) {
+    font-size: smaller;
+  }
 `;
 
 export const WrapDailyImg = styled.div<Props>`
@@ -28,6 +39,10 @@ export const WrapDailyImg = styled.div<Props>`
     `${props.marignBottom ? props.marignBottom : 20}px`};
   margin-left: 50px;
   border-radius: 12px;
+  @media (max-width: 700px) {
+    width: 80%;
+    height: 80%;
+  }
 `;
 
 export const Dailyimg = styled.img`
@@ -47,12 +62,4 @@ export const HeadingWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-`;
-
-export const Heading = styled.h2`
-  padding-left: 10%;
-  margin-bottom: 0;
-  font-weight: 900;
-  font-size: 20px;
-  letter-spacing: 1px;
 `;
