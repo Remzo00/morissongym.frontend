@@ -4,12 +4,14 @@ import { Login } from "../../types/types";
 import { PasswordInput, TextInput, Title } from "@mantine/core";
 import { Wrapper, LoginContainer, LoginInput, Button } from "./index.styled";
 import api from "../../api";
+import { useTranslation } from "react-i18next";
 
 //TODO
 //Finish handling JWT token
 //send code in api request header
 
 const LoginPage = () => {
+  const { t } = useTranslation();
   const [data, setData] = useState<Login>({ username: "" });
 
   const setAuthToken = (token: string) => {
@@ -51,11 +53,11 @@ const LoginPage = () => {
             align="center"
             style={{ marginBottom: 10, color: "white" }}
           >
-            Sign In
+            {t("login.signInTitle")}
           </Title>
           <TextInput
             placeholder="User Name"
-            label="User Name"
+            label={t("login.userName")}
             name="username"
             value={data.username}
             onChange={handleChange}
@@ -77,7 +79,7 @@ const LoginPage = () => {
             styles={{ label: { color: "white" } }}
           /> */}
           <Button type="submit" style={{ top: 25 }}>
-            Sign in
+            {t("login.signInBtn")}
           </Button>
         </LoginInput>
       </LoginContainer>
