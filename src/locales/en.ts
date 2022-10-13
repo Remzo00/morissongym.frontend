@@ -7,8 +7,8 @@ const english = {
       lastName: "Last name",
       email: "Email",
       role: "Role",
-      registar: "Registar",
-      cancel: "Otkaži",
+      registarBtn: "Registar",
+      cancel: "Cancel",
     },
     login: {
       signIn: "Sign in",

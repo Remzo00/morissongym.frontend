@@ -10,8 +10,9 @@ import {
 import { TextInput, Title } from "@mantine/core";
 import { Register } from "../../types/types";
 import api from "../../api";
-
+import { useTranslation } from "react-i18next";
 const RegisterForm = () => {
+  const { t } = useTranslation();
   const [data, setData] = useState<Register>({
     userCode: "",
     firstName: "",
@@ -44,11 +45,11 @@ const RegisterForm = () => {
             align="center"
             style={{ marginBottom: 10, color: "white" }}
           >
-            Registration
+            {t("registar.registration")}
           </Title>
           <TextInput
             placeholder="User Code"
-            label="User Code"
+            label={t("registar.userCode")}
             name="userCode"
             onChange={handleChange}
             value={data.userCode}
@@ -60,7 +61,7 @@ const RegisterForm = () => {
           />
           <TextInput
             placeholder="First Name"
-            label="First Name"
+            label={t("registar.firstName")}
             name="firstName"
             onChange={handleChange}
             value={data.firstName}
@@ -72,7 +73,7 @@ const RegisterForm = () => {
           />
           <TextInput
             placeholder="Last Name"
-            label="Last Name"
+            label={t("registar.lastName")}
             name="lastName"
             onChange={handleChange}
             value={data.lastName}
@@ -84,7 +85,7 @@ const RegisterForm = () => {
           />
           <TextInput
             placeholder="Email"
-            label="Email"
+            label={t("registar.email")}
             name="email"
             onChange={handleChange}
             value={data.email}
@@ -96,7 +97,7 @@ const RegisterForm = () => {
           />
           <TextInput
             placeholder="Role"
-            label="Role"
+            label={t("registar.role")}
             name="roleId"
             onChange={handleChange}
             value={data.roleId}
@@ -107,8 +108,10 @@ const RegisterForm = () => {
             }}
           />
           <ButtonDiv>
-            <ConfirmButton type="submit">Registar</ConfirmButton>
-            <CancelButton>Cancel</CancelButton>
+            <ConfirmButton type="submit">
+              {t("registar.registarBtn")}
+            </ConfirmButton>
+            <CancelButton> {t("registar.cancel")}</CancelButton>
           </ButtonDiv>
         </RegisterInput>
       </RegisterContainer>
