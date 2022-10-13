@@ -12,6 +12,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./assets/theme";
 import Rfid from "./screens/rfid/rfid";
 import RegisterForm from "./screens/register/register";
+import "./locales/i18n";
 
 const App = () => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
