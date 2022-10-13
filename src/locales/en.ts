@@ -11,8 +11,9 @@ const english = {
       cancel: "Cancel",
     },
     login: {
-      signIn: "Sign in",
+      signInTitle: "Sign in",
       userName: "User name",
+      signInBtn: "Sign in",
     },
     sideBar: {
       home: "Home",
