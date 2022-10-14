@@ -9,6 +9,7 @@ import {
   Text,
   Title,
 } from "./addSupplementsDialog.styled";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   opened: boolean;
@@ -16,6 +17,8 @@ type Props = {
 };
 
 const AddSupplementsDialog = ({ opened, setOpened }: Props) => {
+  const { t } = useTranslation();
+
   const cancelHandle = () => {
     setOpened(false);
   };
@@ -33,25 +36,25 @@ const AddSupplementsDialog = ({ opened, setOpened }: Props) => {
         opened={opened}
         onClose={cancelHandle}
       >
-        <Title>Supplements</Title>
+        <Title>{t("addSupplements.supplements")}</Title>
         <Labels>
-          <Text>Protein</Text>
+          <Text>{t("addSupplements.protein")}</Text>
         </Labels>
         <Labels>
           {" "}
-          <Text>Creatin</Text>
+          <Text>{t("addSupplements.creatine")}</Text>
         </Labels>
         <Labels>
           {" "}
-          <Text>BCAA</Text>
+          <Text>{t("addSupplements.bcaa")}</Text>
         </Labels>
         <Labels>
           {" "}
-          <Text>Pre-Workout</Text>
+          <Text>{t("addSupplements.preWorkout")}</Text>
         </Labels>
         <GroupBtn>
-          <CancelButton>Cancel</CancelButton>
-          <ConfirmButton>Next</ConfirmButton>
+          <CancelButton>{t("addSupplements.cancel")}</CancelButton>
+          <ConfirmButton>{t("addSupplements.next")}</ConfirmButton>
         </GroupBtn>
       </Modal>
     </Main>

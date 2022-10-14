@@ -13,6 +13,7 @@ import {
   ButtonDiv,
 } from "./AddCoachDialog.styled";
 import api from "../../api";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   opened: boolean;
@@ -24,6 +25,7 @@ type Props = {
 // };
 
 const AddCoachDialog = ({ opened, setOpened }: Props) => {
+  const { t } = useTranslation();
   const [id, setId] = useState(Number);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -79,7 +81,7 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
         opened={opened}
         onClose={cancelHandler}
       >
-        <Title>Add Coach</Title>
+        <Title>{t("addCoachesModal.addCoaches")}</Title>
         <Wrapper>
           <Formik
             initialValues={{
@@ -95,7 +97,7 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
           >
             {({ errors, touched }) => (
               <Form>
-                <Text>First Name</Text>
+                <Text>{t("addCoachesModal.firstName")}</Text>
                 <Field name="firstName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -111,7 +113,7 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Last Name</Text>
+                <Text>{t("addCoachesModal.lastName")}</Text>
                 <Field name="lastName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -127,7 +129,7 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Email</Text>
+                <Text>{t("addCoachesModal.email")}</Text>
                 <Field name="email">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -143,7 +145,7 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Contact</Text>
+                <Text>{t("addCoachesModal.contact")}</Text>
                 <Field name="phoneNumber">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -160,9 +162,11 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
                   )}
                 </Field>
                 <ButtonDiv>
-                  <CancelButton onClick={cancelHandler}>Cancel</CancelButton>
+                  <CancelButton onClick={cancelHandler}>
+                    {t("addCoachesModal.cancel")}
+                  </CancelButton>
                   <ConfirmButton type="submit" onClick={postData}>
-                    Next
+                    {t("addCoachesModal.confirm")}
                   </ConfirmButton>
                 </ButtonDiv>
               </Form>

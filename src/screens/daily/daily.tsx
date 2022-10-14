@@ -13,8 +13,10 @@ import training from "../../assets/images/training.png";
 import drinks from "../../assets/images/drinks.png";
 import food from "../../assets/images/food.png";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Daily = () => {
+  const { t } = useTranslation();
   const [opened, setOpened] = useState(false);
   return (
     <Wrapper>
@@ -22,13 +24,13 @@ const Daily = () => {
       <ImgWrapper>
         <Services>
           <HeadingWrapper>
-            <Heading>Training</Heading>
+            <Heading>{t("daily.training")}</Heading>
             <WrapDailyImg>
               <Dailyimg src={training} />
             </WrapDailyImg>
           </HeadingWrapper>
           <HeadingWrapper>
-            <Heading>Suplements</Heading>
+            <Heading>{t("daily.supplements")}</Heading>
             <WrapDailyImg>
               <Dailyimg
                 src={supplements}
@@ -41,13 +43,13 @@ const Daily = () => {
         </Services>
         <Services>
           <HeadingWrapper>
-            <Heading>Drinks</Heading>
+            <Heading>{t("daily.drinks")}</Heading>
             <WrapDailyImg marignBottom={50}>
               <Dailyimg src={drinks} />
             </WrapDailyImg>
           </HeadingWrapper>
           <HeadingWrapper>
-            <Heading>Food</Heading>
+            <Heading>{t("daily.food")}</Heading>
             <WrapDailyImg marignBottom={50}>
               <Dailyimg src={food} />
             </WrapDailyImg>

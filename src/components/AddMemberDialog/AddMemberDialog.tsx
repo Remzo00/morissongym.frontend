@@ -13,6 +13,7 @@ import {
   Title,
 } from "./AddMemberDialog.styled";
 import api from "../../api";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   opened: boolean;
@@ -20,6 +21,8 @@ type Props = {
 };
 
 const AddMemberDialog = ({ opened, setOpened }: Props) => {
+  const { t } = useTranslation();
+
   const [id, setId] = useState(Number);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -69,7 +72,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
         opened={opened}
         onClose={cancelHandler}
       >
-        <Title>Add Member</Title>
+        <Title>{t("addMembersModal.addMember")}</Title>
         <Wrapper>
           <Formik
             initialValues={{
@@ -87,7 +90,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
           >
             {({ errors, touched }) => (
               <Form>
-                <Text>First Name</Text>
+                <Text>{t("addMembersModal.firstName")}</Text>
                 <Field name="firstName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -103,7 +106,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Last Name</Text>
+                <Text>{t("addMembersModal.lastName")}</Text>
                 <Field name="lastName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -119,7 +122,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Email</Text>
+                <Text>{t("addMembersModal.email")}</Text>
                 <Field name="email">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -135,7 +138,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Contact</Text>
+                <Text>{t("addMembersModal.contact")}</Text>
                 <Field name="phoneNumber">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -151,7 +154,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Start Date</Text>
+                <Text>{t("addMembersModal.startDate")}</Text>
                 <Field name="startDate">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -167,7 +170,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>End Date</Text>
+                <Text>{t("addMembersModal.endDate")}</Text>
                 <Field name="endDate">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -184,8 +187,12 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
                   )}
                 </Field>
                 <ButtonDiv>
-                  <CancelButton onClick={cancelHandler}>Cancel</CancelButton>
-                  <ConfirmButton onClick={postData}>Confirm</ConfirmButton>
+                  <CancelButton onClick={cancelHandler}>
+                    {t("addMembersModal.cancel")}
+                  </CancelButton>
+                  <ConfirmButton onClick={postData}>
+                    {t("addMembersModal.confirm")}
+                  </ConfirmButton>
                 </ButtonDiv>
               </Form>
             )}
