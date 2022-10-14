@@ -29,8 +29,10 @@ import {
   DashText,
 } from "./home.styled";
 import { useMantineColorScheme } from "@mantine/core";
+import { useTranslation } from "react-i18next";
 
 const Home: React.FC = () => {
+  const { t } = useTranslation();
   const { colorScheme } = useMantineColorScheme();
   const isDark = colorScheme === "dark";
   const state = {
@@ -51,11 +53,11 @@ const Home: React.FC = () => {
   return (
     <HomeContainer isDark={isDark}>
       <WrapCardContainer>
-        <CardTitle isDark={isDark}>Activity</CardTitle>
+        <CardTitle isDark={isDark}>{t("home.activity")}</CardTitle>
         <CardContainer isDark={isDark}>
           <CardGymTime isDark={isDark}>
             <GymNow isDark={isDark}>
-              <CardP isDark={isDark}>In the gym:</CardP>
+              <CardP isDark={isDark}>{t("home.inTheGym")}</CardP>
               <h1>24</h1>
               <ProgressCircle>
                 <CircularProgressbar
@@ -70,7 +72,7 @@ const Home: React.FC = () => {
               </ProgressCircle>
             </GymNow>
             <GymNow isDark={isDark}>
-              <CardP isDark={isDark}>Average:</CardP>
+              <CardP isDark={isDark}>{t("home.average")}:</CardP>
               <h1>24</h1>
               <ProgressCircle>
                 <CircularProgressbar
@@ -89,31 +91,31 @@ const Home: React.FC = () => {
       </WrapCardContainer>
 
       <WrapCardContainer>
-        <CardTitle isDark={isDark}>Overview</CardTitle>
+        <CardTitle isDark={isDark}>{t("home.overview")}</CardTitle>
         <CardContainer isDark={isDark}>
-          <CardP isDark={isDark}>Tracking history:</CardP>
+          <CardP isDark={isDark}>{t("home.trackingHistory")}:</CardP>
           <CardOverview>
             <DashContainer>
               <Dash height={70}></Dash>
 
-              <DashText>Mon</DashText>
+              <DashText>{t("home.mon")}</DashText>
             </DashContainer>
             <DashContainer>
               <Dash height={30}></Dash>
-              <DashText>Tue</DashText>
+              <DashText>{t("home.tue")}</DashText>
             </DashContainer>
             <DashContainer>
               <Dash height={50}></Dash>
 
-              <DashText>Wen</DashText>
+              <DashText>{t("home.wed")}</DashText>
             </DashContainer>
             <DashContainer>
               <Dash height={50}></Dash>
-              <DashText>Thu</DashText>
+              <DashText>{t("home.thu")}</DashText>
             </DashContainer>
             <DashContainer>
               <Dash height={20}></Dash>
-              <DashText>Fri</DashText>
+              <DashText>{t("home.fri")}</DashText>
             </DashContainer>
             <DashContainer>
               <Dash background="#8aff42" height={100}></Dash>
@@ -127,9 +129,9 @@ const Home: React.FC = () => {
         </CardContainer>
       </WrapCardContainer>
       <WrapCardContainer marginBottom={30}>
-        <CardTitle isDark={isDark}>Summary</CardTitle>
+        <CardTitle isDark={isDark}>{t("home.summary")}</CardTitle>
         <CardContainer isDark={isDark}>
-          <CardP isDark={isDark}>New clients:</CardP>
+          <CardP isDark={isDark}>{t("home.newClients")}:</CardP>
           <CardOverview>
             <Line
               data={state}
@@ -156,30 +158,30 @@ const Home: React.FC = () => {
         </CardContainer>
       </WrapCardContainer>
       <WrapCardContainer marginBottom={30}>
-        <CardTitle isDark={isDark}>Chart</CardTitle>
+        <CardTitle isDark={isDark}>{t("home.chart")}</CardTitle>
         <CardContainer isDark={isDark}>
-          <CardP isDark={isDark}>Tracking history:</CardP>
+          <CardP isDark={isDark}>{t("home.trackingHistory")}:</CardP>
           <CardOverview>
             <DashContainer>
-              <DashText>Mon</DashText>
+              <DashText>{t("home.mon")}</DashText>
             </DashContainer>
             <DashContainer>
-              <DashText>Tue</DashText>
+              <DashText>{t("home.tue")}</DashText>
             </DashContainer>
             <DashContainer>
-              <DashText>Wen</DashText>
+              <DashText>{t("home.wed")}</DashText>
             </DashContainer>
             <DashContainer>
-              <DashText>Thu</DashText>
+              <DashText>{t("home.thu")}</DashText>
             </DashContainer>
             <DashContainer>
-              <DashText>Fri</DashText>
+              <DashText>{t("home.fri")}</DashText>
             </DashContainer>
             <DashContainer>
-              <DashText>Sat</DashText>
+              <DashText>{t("home.sat")}</DashText>
             </DashContainer>
             <DashContainer>
-              <DashText>Sun</DashText>
+              <DashText>{t("home.sun")}</DashText>
             </DashContainer>
           </CardOverview>
         </CardContainer>

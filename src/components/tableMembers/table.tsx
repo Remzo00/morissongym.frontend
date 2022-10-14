@@ -4,11 +4,13 @@ import { Th, Tr, Td, Table, TrHead } from "./table.styled";
 import Icons from "../../assets/icons";
 import { Customer } from "../../types/types";
 import api from "../../api";
+import { useTranslation } from "react-i18next";
 
 //TODO
 //Include startDate and endDate
 
 const TableComp = () => {
+  const { t } = useTranslation();
   const [data, setData] = useState<Customer[]>([]);
   const [id, setId] = useState(Number);
   const [firstName, setFirstName] = useState("");
@@ -57,14 +59,14 @@ const TableComp = () => {
     <Table>
       <thead>
         <TrHead>
-          <Th>Status</Th>
-          <Th>First Name</Th>
-          <Th>Last Name</Th>
-          <Th>Contact</Th>
-          <Th>Email</Th>
-          <Th>Start Date</Th>
-          <Th>End Date</Th>
-          <Th>Edit</Th>
+          <Th>{t("members.status")}</Th>
+          <Th>{t("members.firstName")}</Th>
+          <Th>{t("members.lastName")}</Th>
+          <Th>{t("members.contact")}</Th>
+          <Th>{t("members.email")}</Th>
+          <Th>{t("members.startDate")}</Th>
+          <Th>{t("members.endDate")}</Th>
+          <Th>{t("members.edit")}</Th>
         </TrHead>
         <tbody>{rows}</tbody>
       </thead>

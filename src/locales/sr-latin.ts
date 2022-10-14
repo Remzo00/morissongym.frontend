@@ -31,6 +31,13 @@ const serbianLatin = {
       average: "Prosek",
       trackingHistory: "Istorija praćenja",
       newClients: "Novi klienti",
+      mon: "Ponedeljak",
+      tue: "Utorak",
+      wed: "Sreda",
+      thu: "Četvrtak",
+      fri: "Petak",
+      sat: "Subota",
+      sun: "Nedelja",
     },
     rfid: {
       scanRfid: "Skeniraj karticu",
