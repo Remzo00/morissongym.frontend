@@ -13,15 +13,18 @@ import {
   Select,
   useMantineColorScheme,
 } from "@mantine/core";
+import { useTranslation } from "react-i18next";
 
 const Settings = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Wrapper>
-        <TitleSetting>Settings</TitleSetting>
+        <TitleSetting>{t("settings.settings")}</TitleSetting>
         <WrapperSettings>
           <SettingElement>
-            <TitleSetting>Language</TitleSetting>
+            <TitleSetting>{t("settings.language")}</TitleSetting>
             <Select
               style={{ borderRadius: "10px", color: "white" }}
               variant="unstyled"

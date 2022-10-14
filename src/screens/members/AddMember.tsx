@@ -8,8 +8,11 @@ import {
   TableWrapper,
   Wrapper,
 } from "./AddMember.styled";
+import { useTranslation } from "react-i18next";
 
 const addMember = () => {
+  const { t } = useTranslation();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const addMemberHandler = () => {
@@ -20,8 +23,10 @@ const addMember = () => {
     <>
       <Wrapper>
         <HeadingWrapper>
-          <Heading>Members List</Heading>
-          <Button onClick={addMemberHandler}>Add Member</Button>
+          <Heading>{t("members.membersList")}</Heading>
+          <Button onClick={addMemberHandler}>
+            {t("addMembersModal.addMembers")}
+          </Button>
           {isOpen && <AddMemberDialog opened={isOpen} setOpened={setIsOpen} />}
         </HeadingWrapper>
         <TableWrapper>

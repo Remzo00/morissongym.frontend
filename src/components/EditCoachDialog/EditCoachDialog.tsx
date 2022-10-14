@@ -14,6 +14,7 @@ import api from "../../api";
 import { Coach } from "../../types/types";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   opened: boolean;
@@ -22,6 +23,8 @@ type Props = {
 };
 
 const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
+  const { t } = useTranslation();
+
   const [coachValues, setCoachValues] = useState(coach);
 
   const EditCoachSchema = Yup.object().shape({
@@ -77,7 +80,7 @@ const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
         opened={opened}
         onClose={cancelHandler}
       >
-        <Title>Edit Coach</Title>
+        <Title>{t("editCoachesButton.editCoaches")}</Title>
         <Wrapper>
           <Formik
             initialValues={{
@@ -93,7 +96,7 @@ const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
           >
             {({ errors, touched }) => (
               <Form>
-                <Text>First Name</Text>
+                <Text>{t("editCoachesButton.firstName")}</Text>
                 <Field name="firstName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -114,7 +117,7 @@ const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Last Name</Text>
+                <Text>{t("editCoachesButton.lastName")}</Text>
                 <Field name="lastName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -135,7 +138,7 @@ const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Contact</Text>
+                <Text>{t("editCoachesButton.contact")}</Text>
                 <Field name="phoneNumber">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -156,7 +159,7 @@ const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Email</Text>
+                <Text>{t("editCoachesButton.email")}</Text>
                 <Field name="email">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -179,9 +182,11 @@ const EditCoachDialog = ({ opened, setOpened, coach }: Props) => {
                 </Field>
                 <ButtonDiv>
                   <DeleteButton onClick={() => deleteData(coachValues.id)}>
-                    Delete
+                    {t("editCoachesButton.delete")}
                   </DeleteButton>
-                  <ConfirmButton onClick={postData}>Next</ConfirmButton>
+                  <ConfirmButton onClick={postData}>
+                    {t("editCoachesButton.confirm")}
+                  </ConfirmButton>
                 </ButtonDiv>
               </Form>
             )}

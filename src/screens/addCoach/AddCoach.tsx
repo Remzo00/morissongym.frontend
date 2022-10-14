@@ -8,8 +8,11 @@ import {
 } from "./AddCoach.styled";
 import TableCoaches from "../../components/tableCoaches/tableCoaches";
 import AddCoachDialog from "../../components/AddCoachDialog/AddCoachDialog";
+import { useTranslation } from "react-i18next";
 
 const AddCoach = () => {
+  const { t } = useTranslation();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const addCoachHandler = () => {
@@ -20,8 +23,10 @@ const AddCoach = () => {
     <>
       <Wrapper>
         <HeadingWrapper>
-          <Heading>Coaches list</Heading>
-          <Button onClick={addCoachHandler}>Add Coach</Button>
+          <Heading>{t("coaches.coachesList")}</Heading>
+          <Button onClick={addCoachHandler}>
+            {t("addCoachesModal.addCoaches")}
+          </Button>
           {isOpen && <AddCoachDialog opened={isOpen} setOpened={setIsOpen} />}
         </HeadingWrapper>
         <TableWrapper>

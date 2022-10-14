@@ -14,6 +14,7 @@ import {
 } from "./EditMemberDialog.style";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 //TODO
 //Finish implementing value on input for startDate and endDate
@@ -25,6 +26,8 @@ type Props = {
 };
 
 const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
+  const { t } = useTranslation();
+
   const [membersValues, setMembersValues] = useState(customer);
 
   const EditMemberSchema = Yup.object().shape({
@@ -70,7 +73,7 @@ const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
         opened={opened}
         onClose={cancelHandler}
       >
-        <Title>Edit Member</Title>
+        <Title>{t("editMembersButton.editMembersTitle")}</Title>
         <Wrapper>
           <Formik
             initialValues={{
@@ -86,7 +89,7 @@ const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
           >
             {({ errors, touched }) => (
               <Form>
-                <Text>First Name</Text>
+                <Text>{t("editMembersButton.firstName")}</Text>
                 <Field name="firstName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -106,7 +109,7 @@ const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Last Name</Text>
+                <Text>{t("editMembersButton.lastName")}</Text>
                 <Field name="lastName">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -126,7 +129,7 @@ const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Contact</Text>
+                <Text>{t("editMembersButton.contact")}</Text>
                 <Field name="phoneNumber">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -146,7 +149,7 @@ const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Email</Text>
+                <Text>{t("editMembersButton.email")}</Text>
                 <Field name="email">
                   {({ field, form: { touched, errors }, meta }: any) => (
                     <div>
@@ -166,9 +169,9 @@ const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
                     </div>
                   )}
                 </Field>
-                <Text>Start Date</Text>
+                <Text>{t("editMembersButton.startDate")}</Text>
                 <Input />
-                <Text>End Date</Text>
+                <Text>{t("editMembersButton.endDate")}</Text>
                 <Input />
               </Form>
             )}
@@ -176,9 +179,11 @@ const editMemberDialog = ({ opened, setOpened, customer }: Props) => {
         </Wrapper>
         <ButtonDiv>
           <DeleteButton onClick={() => deleteMember(membersValues.id)}>
-            Delete
+            {t("editMembersButton.delete")}
           </DeleteButton>
-          <ConfirmButton onClick={postData}>Confirm</ConfirmButton>
+          <ConfirmButton onClick={postData}>
+            {t("editMembersButton.confirm")}
+          </ConfirmButton>
         </ButtonDiv>
       </Modal>
     </Main>
