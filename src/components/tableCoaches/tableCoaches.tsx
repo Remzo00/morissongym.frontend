@@ -5,8 +5,11 @@ import { Table, Td, Th, Tr, TrHead } from "./tableCoaches.styled";
 import api from "../../api";
 import { Coach } from "../../types/types";
 import EditCoachDialog from "../EditCoachDialog/EditCoachDialog";
+import { useTranslation } from "react-i18next";
 
 const TableCoaches = () => {
+  const { t } = useTranslation();
+
   const [data, setData] = useState<Coach[]>([]);
   const [id, setId] = useState(Number);
   const [firstName, setFirstName] = useState("");
@@ -70,12 +73,12 @@ const TableCoaches = () => {
     <Table>
       <thead>
         <TrHead>
-          <Th>Status</Th>
-          <Th>First Name</Th>
-          <Th>Last Name</Th>
-          <Th>Contact</Th>
-          <Th>Email</Th>
-          <Th>Edit</Th>
+          <Th>{t("coaches.status")}</Th>
+          <Th>{t("coaches.firstName")}</Th>
+          <Th>{t("coaches.lastName")}</Th>
+          <Th>{t("coaches.contact")}</Th>
+          <Th>{t("coaches.email")}</Th>
+          <Th>{t("coaches.edit")}</Th>
         </TrHead>
       </thead>
       <tbody>{rows}</tbody>
