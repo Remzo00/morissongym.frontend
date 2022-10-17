@@ -5,9 +5,6 @@ export const Wrapper = styled.div`
   height: 100vh;
   padding: 30px;
   width: 100%;
-  & > input {
-    background: black;
-  }
 `;
 
 export const TitleSetting = styled.div`
@@ -18,11 +15,12 @@ export const TitleSetting = styled.div`
   margin-bottom: 15px;
 `;
 
-export const WrapperSettings = styled.div`
+export const WrapperLanguage = styled.div`
   background-color: #1a1b1e;
   height: auto;
   padding: 30px;
   border-radius: 10px;
+  margin-bottom: 30px;
 `;
 
 export const SettingElement = styled.div`
@@ -44,5 +42,25 @@ export const SettingButton = styled.button`
   &:hover {
     background-color: white;
     color: black;
+  }
+`;
+
+// Theme
+
+export const WrapperTheme = styled.div`
+  background-color: #1a1b1e;
+  height: auto;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const TextTheme = styled.p`
+  color: gray;
+  @media (max-width: 700px) {
+    display: none;
   }
 `;
