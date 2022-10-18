@@ -19,11 +19,29 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useTranslation } from "react-i18next";
+import i18n from "../../locales/i18n";
+import { LanguageContext } from "../../locales/LocaleContext";
+
+//TODO
+//Fix change language
 
 const Settings = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-
+  const { locale, setLocale } = useContext(LanguageContext);
   const { t } = useTranslation();
+
+  const changeLocale = (l: any) => {
+    const lang = l.target.value;
+    console.log(lang);
+    setLocale(lang);
+    i18n.changeLanguage(lang);
+  };
+
+  // const changeLocale = (l: any) => {
+  //   if (locale !== l) {
+  //     i18n.changeLanguage(l);
+  //   }
+  // };
 
   return (
     <>
@@ -38,9 +56,12 @@ const Settings = () => {
               placeholder="Chose your language"
               defaultValue={"english"}
               icon=""
+              // onClick={() => changeLocale("en")}
+              onChange={changeLocale}
+              value={locale}
               data={[
-                { value: "english", label: "English" },
-                { value: "serbian", label: "Serbian" },
+                { value: "en", label: "English" },
+                { value: "sr", label: "Serbian" },
               ]}
               styles={() => ({
                 item: {
@@ -65,11 +86,8 @@ const Settings = () => {
           <SettingButton>Button</SettingButton>
         </WrapperLanguage>
         <WrapperTheme>
-          <TitleSetting>Theme</TitleSetting>
-          <TextTheme>
-            Click or drag swither to change the theme of your GymPanel
-            environment.
-          </TextTheme>
+          <TitleSetting>{t("settings.theme")}</TitleSetting>
+          <TextTheme>{t("settings.themeTxt")}</TextTheme>
 
           <Group position="center">
             <SegmentedControl
@@ -82,7 +100,7 @@ const Settings = () => {
                   value: "light",
                   label: (
                     <Center>
-                      <Box ml={10}>Light</Box>
+                      <Box ml={10}>{t("settings.light")}</Box>
                     </Center>
                   ),
                 },
@@ -90,7 +108,7 @@ const Settings = () => {
                   value: "dark",
                   label: (
                     <Center>
-                      <Box ml={10}>Dark</Box>
+                      <Box ml={10}>{t("settings.dark")}</Box>
                     </Center>
                   ),
                 },

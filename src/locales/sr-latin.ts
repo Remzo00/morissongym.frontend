@@ -105,6 +105,11 @@ const serbianLatin = {
       language: "Jezik",
       english: "Engleski",
       serbian: "Srpski",
+      theme: "Tema",
+      themeText:
+        "Kliknite ili prevucite da biste promenili temu vašeg GimPanel okruženja.",
+      light: "Svetlo",
+      dark: "Tamno",
     },
   },
 };
