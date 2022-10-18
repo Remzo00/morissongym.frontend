@@ -124,6 +124,11 @@ const english = {
       language: "Language",
       english: "English",
       serbian: "Serbian",
+      theme: "Theme",
+      themeTxt:
+        "Click or drag swither to change the theme of your GymPanel environment.",
+      light: "Light",
+      dark: "Dark",
     },
   },
 };
