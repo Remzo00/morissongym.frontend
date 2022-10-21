@@ -40,15 +40,19 @@ export function NavbarSimple() {
 
   return (
     <>
-      <Burger
-        style={{ position: "absolute", top: 20 }}
-        opened={toggle}
-        onClick={() => setToggle(!toggle)}
-        color={"white"}
-        size={32}
-      />
+      {screenSize.dynamicWidth < 800 ? (
+        <Burger
+          style={{ position: "absolute", top: 20 }}
+          opened={toggle}
+          onClick={() => setToggle(!toggle)}
+          color={"white"}
+          size={32}
+        />
+      ) : (
+        ""
+      )}
       {toggle ? (
-        <Navbar p="lg" className={classes.wrapper}>
+        <Navbar className={classes.wrapper}>
           <div
             style={{
               height: 700,
