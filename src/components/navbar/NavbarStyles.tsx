@@ -16,9 +16,9 @@ export const useStyles = createStyles((theme, _params, getRef) => {
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
-      height: "20%",
+      height: "10%",
       transition: "all ease-in-out 0.25s",
-      margin: "10% 0%",
+      margin: "2% 0%",
 
       "&:hover": {
         backgroundColor: theme.colors.lime[9],
@@ -51,7 +51,7 @@ export const useStyles = createStyles((theme, _params, getRef) => {
     },
     wrapper: {
       height: "auto",
-      width: 400,
+      width: 360,
       background: isDark ? theme.colors.white_gray : theme.colors.dark[7],
       border: 0,
       position: "sticky",
