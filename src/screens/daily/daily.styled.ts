@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   color: white;
   display: flex;
   width: 100%;
+  justify-content: center;
 `;
 export const ImgWrapper = styled.div`
   display: block;
