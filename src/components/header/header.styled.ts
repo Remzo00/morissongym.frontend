@@ -7,6 +7,7 @@ export const Main = styled.div`
   height: 80px;
   background-color: #1a1b1e;
   padding: 0px 50px 0px 50px;
+  min-width: 100vw;
 `;
 export const Employe = styled.div`
   display: flex;
