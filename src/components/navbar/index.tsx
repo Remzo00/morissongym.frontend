@@ -6,7 +6,9 @@ import { NavbarItem } from "./NavbarLinks";
 
 export function NavbarSimple() {
   const { classes } = useStyles();
-  const [active, setActive] = useState("");
+
+  const [active, setActive] = useState("HOME");
+
   const [toggle, setToggle] = useState(true);
   const [screenSize, getDimension] = useState({
     dynamicWidth: window.innerWidth,
@@ -31,6 +33,9 @@ export function NavbarSimple() {
     localStorage.setItem("toggle", JSON.stringify(toggle));
   }, [toggle]);
 
+  useEffect(() => {
+    localStorage.setItem("activeItem", active);
+  }, [active]);
   const setDimension = () => {
     getDimension({
       dynamicWidth: window.innerWidth,
@@ -40,15 +45,19 @@ export function NavbarSimple() {
 
   return (
     <>
-      <Burger
-        style={{ position: "absolute", top: 20 }}
-        opened={toggle}
-        onClick={() => setToggle(!toggle)}
-        color={"white"}
-        size={32}
-      />
+      {screenSize.dynamicWidth < 800 ? (
+        <Burger
+          style={{ position: "absolute", top: 20 }}
+          opened={toggle}
+          onClick={() => setToggle(!toggle)}
+          color={"white"}
+          size={32}
+        />
+      ) : (
+        ""
+      )}
       {toggle ? (
-        <Navbar p="lg" className={classes.wrapper}>
+        <Navbar className={classes.wrapper}>
           <div
             style={{
               height: 700,

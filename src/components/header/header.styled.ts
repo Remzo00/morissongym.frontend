@@ -3,21 +3,31 @@ import styled from "styled-components";
 export const Main = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.colors.gray};
-  height:75px
+  align-items: center;
+  height: 80px;
+  background-color: #1a1b1e;
+  padding: 0px 50px 0px 50px;
 `;
-export const Text = styled.h1`
-  color: ${(props) => props.theme.colors.white};
-  padding-left: 40px;
-  margin-top:10px;
+export const Employe = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+export const EmployeesImg = styled.img`
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  border: 1px solid white;
 `;
 export const EmployesNameTxt = styled.h3`
   color: ${(props) => props.theme.colors.white};
-  margin-top: 40px;
-  padding-right: 40px;
+  margin-left: 20px;
 `;
 export const InlineTxt = styled.span`
   color: ${(props) => props.theme.colors.green};
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 1000;
 `;
 
 export const Input = styled.input`
