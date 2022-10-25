@@ -8,7 +8,6 @@ interface NavbarLinkInterface {
 
 export const NavbarItem = (props: NavbarLinkInterface) => {
   const { classes, cx } = useStyles();
-  console.log(props.item.label);
   let pathName = window.location.pathname.toUpperCase().slice(1);
 
   return (

@@ -1,9 +1,11 @@
 import { createStyles, useMantineColorScheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 export const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
   const { colorScheme } = useMantineColorScheme();
   const isDark = colorScheme === "dark";
+  const matches = useMediaQuery("(min-width: 900px)");
   return {
     link: {
       ...theme.fn.focusStyles(),
@@ -50,12 +52,12 @@ export const useStyles = createStyles((theme, _params, getRef) => {
       fontSize: 17,
     },
     wrapper: {
-      height: "auto",
-      width: 360,
+      miNheight: "100vh",
+      width: `${matches ? "360px" : "300px"}`,
       background: isDark ? theme.colors.white_gray : theme.colors.dark[7],
       border: 0,
-      position: "sticky",
-      top: 0,
+      position: `${matches ? "sticky" : "absolute"}`,
+      top: "auto",
     },
     section: {
       height: "100%",

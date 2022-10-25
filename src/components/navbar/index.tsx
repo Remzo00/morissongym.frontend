@@ -20,7 +20,7 @@ export function NavbarSimple() {
 
   useEffect(() => {
     window.addEventListener("resize", setDimension);
-    if (screenSize.dynamicWidth < 700) {
+    if (screenSize.dynamicWidth < 900) {
       setToggle(false);
     } else {
       setToggle(true);
@@ -45,7 +45,7 @@ export function NavbarSimple() {
 
   return (
     <>
-      {screenSize.dynamicWidth < 800 ? (
+      {screenSize.dynamicWidth < 900 ? (
         <Burger
           style={{ position: "absolute", top: 20 }}
           opened={toggle}

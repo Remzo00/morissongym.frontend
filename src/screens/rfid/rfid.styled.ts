@@ -5,7 +5,7 @@ interface Props {
 export const Container = styled.div<Props>`
   background-color: black;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: ${(props) => `${props.show === "none" ? "flex" : "none"}`};
   align-items: center;
   justify-content: center;
