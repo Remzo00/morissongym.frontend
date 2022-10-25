@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 export const HeadingWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  width: auto;
 `;
 
 export const Heading = styled.h1`

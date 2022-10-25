@@ -31,7 +31,6 @@ const TableComp = () => {
       endDate,
     });
   };
-  console.log(data);
   useEffect(() => {
     api.getCustomers().then((res) => {
       setData(res.result);
@@ -40,18 +39,15 @@ const TableComp = () => {
 
   const rows = data.map((customer, index) => (
     <Tr key={index}>
-      <Td>
+      <Td data-label="Status">
         <Icons.Checked />
       </Td>
-      <Td>{customer.firstName}</Td>
-      <Td>{customer.lastName}</Td>
-      <Td>{customer.phoneNumber}</Td>
-      <Td>{customer.email}</Td>
-      {/* <Td>{customer.startDate}</Td>
-      <Td>{customer.endDate}</Td> */}
-      <Td>
-        <Button />
-      </Td>
+      <Td data-label="Name">{customer.firstName}</Td>
+      <Td data-label="Last Name">{customer.lastName}</Td>
+      <Td data-label="Contact">{customer.phoneNumber}</Td>
+      <Td data-label="Email">{customer.email}</Td>
+      {/* <Td data-label="Start Date">{customer.startDate}</Td>
+      <Td data-label="End Date">{customer.endDate}</Td> */}
     </Tr>
   ));
 

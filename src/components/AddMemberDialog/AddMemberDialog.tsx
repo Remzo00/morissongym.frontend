@@ -68,7 +68,7 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
     <Main>
       <Modal
         styles={{ modal: { backgroundColor: "#1A1A1A" } }}
-        size={"40%"}
+        size={"400px"}
         opened={opened}
         onClose={cancelHandler}
       >
@@ -199,10 +199,6 @@ const AddMemberDialog = ({ opened, setOpened }: Props) => {
           </Formik>
         </Wrapper>
       </Modal>
-
-      <Group position="center">
-        <Button style={{ background: "#7DCD16" }}>Add Member</Button>
-      </Group>
     </Main>
   );
 };

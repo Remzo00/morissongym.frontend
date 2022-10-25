@@ -77,7 +77,7 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
     <Main>
       <Modal
         styles={{ modal: { backgroundColor: "#1A1A1A" } }}
-        size={"40%"}
+        size={"400px"}
         opened={opened}
         onClose={cancelHandler}
       >
@@ -174,11 +174,6 @@ const AddCoachDialog = ({ opened, setOpened }: Props) => {
           </Formik>
         </Wrapper>
       </Modal>
-      <Group position="center">
-        <Button onClick={cancelHandler} style={{ background: "#7DCD16" }}>
-          Add Coach
-        </Button>
-      </Group>
     </Main>
   );
 };

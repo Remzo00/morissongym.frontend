@@ -52,11 +52,11 @@ export const useStyles = createStyles((theme, _params, getRef) => {
       fontSize: 17,
     },
     wrapper: {
-      miNheight: "100vh",
+      height: "auto",
       width: `${matches ? "360px" : "300px"}`,
       background: isDark ? theme.colors.white_gray : theme.colors.dark[7],
       border: 0,
-      position: `${matches ? "sticky" : "absolute"}`,
+      position: `${matches ? "sticky" : "fixed"}`,
       top: "auto",
     },
     section: {

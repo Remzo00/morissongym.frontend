@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 80%;
-  height: 663px;
-  margin: auto;
+  background-color: black;
+  min-height: 100vh;
   background-color: ${(props) => props.theme.colors.black};
   color: ${(props) => props.theme.colors.white};
-  padding: 25px;
 `;
 
 export const HeadingWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  width: auto;
 `;
 
 export const Heading = styled.h1`
@@ -28,12 +27,18 @@ export const Button = styled.button`
   font-weight: 700;
   color: white;
   font-size: 16px;
+  position: relative;
   cursor: pointer;
+  @media (max-width: 700px) {
+    font-weight: auto;
+    font-size: 12px;
+    width: 80px;
+  }
 `;
 
 export const TableWrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 10px;
   border-radius: 15px;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: #1a1b1e;
+  height: auto;
 `;

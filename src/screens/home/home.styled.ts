@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 
 export const HomeContainer = styled.div<{ isDark: boolean }>`
   min-height: 100vh;
+  width: fit-content;
   display: flex;
   flex-wrap: wrap;
   background-color: ${(props) => (props.isDark ? "#e5e4e2" : "black")};
@@ -44,7 +45,7 @@ export const CardContainer = styled.div<{ isDark: boolean }>`
     width: 330px;
   }
   @media (max-width: 900px) and (min-width: 600px) {
-    width: 600px;
+    width: 574px;
     margin: 20px 3px 0px 3px;
   }
 `;
