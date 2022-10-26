@@ -10,6 +10,8 @@ export const Wrapper = styled.div`
 export const HeadingWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  width: auto;
+  background-color: red;
 `;
 
 export const Heading = styled.h1`
@@ -26,11 +28,18 @@ export const Button = styled.button`
   font-weight: 700;
   color: white;
   font-size: 16px;
+  position: relative;
   cursor: pointer;
+  @media (max-width: 700px) {
+    font-weight: auto;
+    font-size: 12px;
+    width: 80px;
+  }
 `;
 
 export const TableWrapper = styled.div`
   margin-top: 10px;
   border-radius: 15px;
   background-color: #1a1b1e;
+  height: auto;
 `;

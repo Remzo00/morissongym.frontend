@@ -15,6 +15,9 @@ export const Title = styled.h1`
   font-size: 32px;
   line-height: 30px;
   color: ${(props) => props.theme.colors.white};
+  @media (max-width: 700px) {
+    font-size: 25px;
+  }
 `;
 export const Text = styled.h1`
   font-family: "Poppins";
@@ -38,12 +41,12 @@ export const Input = styled.input`
 export const ButtonDiv = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 50px;
+  width: auto;
+  justify-content: space-around;
+  margin-top: 20px;
 `;
 export const ConfirmButton = styled.button`
-  width: 150px;
+  width: 100px;
   height: 35px;
   border-radius: 10px;
   color: #ffffff;
@@ -52,7 +55,7 @@ export const ConfirmButton = styled.button`
   background: ${(props) => props.theme.colors.green};
 `;
 export const CancelButton = styled.button`
-  width: 150px;
+  width: 100px;
   height: 35px;
   cursor: pointer;
   border: none;

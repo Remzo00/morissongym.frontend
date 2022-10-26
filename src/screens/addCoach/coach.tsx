@@ -1,5 +1,3 @@
-import React from "react";
-import Header from "../../components/header/header";
 import AddCoach from "./AddCoach";
 import { Main } from "./coach.styled";
 
